@@ -109,6 +109,9 @@ Shift+Ctrl+LMB | Spawn tiles.
 Shift+LMB      | Add/remove tile to/from multiple selection.
 
 > LMB - left mouse button
+>
 > MMB - middle mouse button
+>
 > MW - mouse wheel
+>
 > RMB - right mouse button
