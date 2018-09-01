@@ -44,9 +44,10 @@ Macro              | Description
 `PEd_VAR_ALPHA`    | Instance alpha
 
 **List of automatically saved variables:**
+
  `x`, `y`, `image_angle`, `image_xscale`, `image_yscale`, `image_blend`, `image_alpha`
 
-These variables are ALWAYS saved into the room file (both GM's native and external). Any other additional variable has to be written into instance's creation code. Writing variables into the creation code is done by PEd_instanceAutocompleteCode. Loading variables from creation code, which is necessary only for external "*.bbmap" room files (in GM's native rooms this is done automatically), is done in `PEd_assignVariable`. So if you make any changes to the constants, make sure that you have also rewritten variable names in those two scripts.
+These variables are ALWAYS saved into the room file (both GM's native and external). Any other additional variable has to be written into instance's creation code. Writing variables into the creation code is done by `PEd_instanceAutocompleteCode`. Loading variables from creation code, which is necessary only for external "*.bbmap" room files (in GM's native rooms this is done automatically), is done in `PEd_assignVariable`. So if you make any changes to the constants, make sure that you have also rewritten variable names in those two scripts.
 
 > \* - Additional variables, necessary only for 3D transformations. If you are using PEd for creating 2D levels, you can leave these constants as they are.
 
