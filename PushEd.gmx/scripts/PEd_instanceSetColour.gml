@@ -6,7 +6,7 @@
  */
 with (argument0)
 {
-    PEd_COLOUR = argument1;
+    variable_instance_set(id, PEd_COLOUR, argument1);
     
     with (PEd_oEditor)
     {
@@ -16,7 +16,7 @@ with (argument0)
             {
                 with (selectedObjects[| i])
                 {
-                    PEd_COLOUR = argument1;
+                    variable_instance_set(id, PEd_COLOUR, argument1);
                 }
             }
         }

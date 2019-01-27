@@ -4,7 +4,4 @@
  * @param {real} id The id of the instance.
  * @return {real} The rotation around the x axis.
  */
-with (argument0)
-{
-    return PEd_ROT_X;
-}
+return variable_instance_get(argument0, PEd_ROT_X);

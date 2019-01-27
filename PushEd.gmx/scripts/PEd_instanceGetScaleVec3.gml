@@ -4,7 +4,6 @@
  * @param {real} id The id of the instance.
  * @return {vec3} The scale on the x,y,z axis.
  */
-with (argument0)
-{
-    return PEd_vec3(PEd_SCALE_X, PEd_SCALE_Y, PEd_SCALE_Z);
-}
+return PEd_vec2(
+    variable_instance_get(argument0, PEd_SCALE_X),
+    variable_instance_get(argument0, PEd_SCALE_Y));

@@ -6,5 +6,8 @@
  */
 with (argument0)
 {
-    return PEd_vec3(PEd_POS_X, PEd_POS_Y, PEd_POS_Z);
+    var _x = variable_instance_get(id, PEd_POS_X);
+    var _y = variable_instance_get(id, PEd_POS_Y);
+    var _z = variable_instance_get(id, PEd_POS_Z);
+    return PEd_vec3(_x, _y, _z);
 }

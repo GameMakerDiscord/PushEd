@@ -27,9 +27,10 @@
             <kind>1</kind>
             <string>/// Init
 event_inherited();
-PEd_SCALE_X = 10;
-PEd_SCALE_Y = PEd_SCALE_X;
-PEd_SCALE_Z = PEd_SCALE_X;
+var _scale = 10;
+PEd_instanceSetScaleX(id, _scale);
+PEd_instanceSetScaleY(id, _scale);
+PEd_instanceSetScaleZ(id, _scale);
 </string>
           </argument>
         </arguments>
@@ -55,10 +56,12 @@ PEd_SCALE_Z = PEd_SCALE_X;
             <string>/// Draw
 var _colour = draw_get_colour();
 var _alpha = draw_get_alpha();
-if (_colour != PEd_COLOUR)
-    draw_set_colour(PEd_COLOUR);
-if (_alpha != PEd_ALPHA)
-    draw_set_alpha(PEd_ALPHA);
+var _colourNew = PEd_instanceGetColour(id);
+var _alphaNew = PEd_instanceGetAlpha(id);
+if (_colour != _colourNew)
+    draw_set_colour(_colourNew);
+if (_alpha != _alphaNew)
+    draw_set_alpha(_alphaNew);
 
 var _matWorld = matrix_get(matrix_world);
 matrix_set(matrix_world, PEd_instanceGetMatrix(id));

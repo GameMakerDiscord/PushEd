@@ -6,10 +6,11 @@
  */
 with (argument0)
 {
-    var _colour = PEd_argbToAlpha(argument1);
-    var _alpha = PEd_argbToColour(argument1);
-    PEd_ALPHA = _colour;
-    PEd_COLOUR = _alpha;
+    var _colour = PEd_argbToColour(argument1);
+    var _alpha = PEd_argbToAlpha(argument1);
+    
+    variable_instance_set(id, PEd_ALPHA, _alpha);
+    variable_instance_set(id, PEd_COLOUR, _colour);
     
     with (PEd_oEditor)
     {
@@ -19,8 +20,8 @@ with (argument0)
             {
                 with (selectedObjects[| i])
                 {
-                    PEd_ALPHA = _colour;
-                    PEd_COLOUR = _alpha;
+                    variable_instance_set(id, PEd_ALPHA, _alpha);
+                    variable_instance_set(id, PEd_COLOUR, _colour);
                 }
             }
         }

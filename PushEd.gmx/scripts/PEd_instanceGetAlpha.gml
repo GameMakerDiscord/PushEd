@@ -4,7 +4,4 @@
  * @param {real} id The id of the instance.
  * @return {real} The alpha.
  */
-with (argument0)
-{
-    return PEd_ALPHA;
-}
+return variable_instance_get(argument0, PEd_ALPHA);

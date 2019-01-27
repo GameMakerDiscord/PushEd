@@ -64,6 +64,13 @@ do
             {
                 _value = ds_stack_pop(_stack);
                 
+                // Cast value into a correct type
+                if (!(string_char_at(_value, 1) == '"'
+                    && string_char_at(_value, string_length(_value)) == '"'))
+                {
+                    _value = real(_value);
+                }
+                
                 if (!ds_stack_empty(_stack)) 
                 {
                     _operator = ds_stack_pop(_stack);

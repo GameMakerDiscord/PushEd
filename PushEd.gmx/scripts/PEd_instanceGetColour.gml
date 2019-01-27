@@ -4,7 +4,4 @@
  * @param {real} id The id of the instance.
  * @return {real} The color.
  */
-with (argument0)
-{
-    return PEd_COLOUR;
-}
+return variable_instance_get(argument0, PEd_COLOUR);

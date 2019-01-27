@@ -10,7 +10,7 @@
  */
 with (argument[0])
 {
-    PEd_POS_Y = argument[1];
+    variable_instance_set(id, PEd_POS_Y, argument[1]);
     
     // Set pivot position
     var _offset = true;

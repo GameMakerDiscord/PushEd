@@ -4,7 +4,6 @@
  * @param {real} id The id of the instance.
  * @return {real} The ARGB color.
  */
-with (argument0)
-{
-    return PEd_colourAlphaToArgb(PEd_COLOUR, PEd_ALPHA);
-}
+return PEd_colourAlphaToArgb(
+    variable_instance_get(argument0, PEd_COLOUR),
+    variable_instance_get(argument0, PEd_ALPHA));

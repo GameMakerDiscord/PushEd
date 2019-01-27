@@ -27,6 +27,13 @@ if (_pos != 0)
             
         _val += _char;
     }
+    
+    if (!(string_char_at(_val, 1) == '"'
+        && string_char_at(_val, string_length(_val)) == '"'))
+    {
+        _val = real(_val);   
+    }
+    
     return _val;
 }
 

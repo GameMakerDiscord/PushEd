@@ -56,20 +56,20 @@ pedObjectName = object_get_name(object_index);  /*&lt; The object name. */
 pedInstanceName = PEd_instanceGenerateName(id); /*&lt; The instance name.*/
 pedCreationCode = "";                           /*&lt; The instance creation code. */
 
-PEd_POS_X = x;          /*&lt; Position of the instance on the x axis. */
-PEd_POS_Y = y;          /*&lt; Position of the instance on the y axis. */
-PEd_POS_Z = 0;          /*&lt; Position of the instance on the z axis. */
+variable_instance_set(id, PEd_POS_X, x);          /*&lt; Position of the instance on the x axis. */
+variable_instance_set(id, PEd_POS_Y, y);          /*&lt; Position of the instance on the y axis. */
+variable_instance_set(id, PEd_POS_Z, 0);          /*&lt; Position of the instance on the z axis. */
 
-PEd_SCALE_X = 1;        /*&lt; Scale of the instance on the x axis. */
-PEd_SCALE_Y = 1;        /*&lt; Scale of the instance on the y axis. */
-PEd_SCALE_Z = 1;        /*&lt; Scale of the instance on the z axis. */
+variable_instance_set(id, PEd_SCALE_X, 1);        /*&lt; Scale of the instance on the x axis. */
+variable_instance_set(id, PEd_SCALE_Y, 1);        /*&lt; Scale of the instance on the y axis. */
+variable_instance_set(id, PEd_SCALE_Z, 1);        /*&lt; Scale of the instance on the z axis. */
 
-PEd_ROT_X = 0;          /*&lt; Rotation of the instance around the x axis. */
-PEd_ROT_Y = 0;          /*&lt; Rotation of the instance around the y axis. */
-PEd_ROT_Z = 1;          /*&lt; Rotation of the instance around the z axis. */
+variable_instance_set(id, PEd_ROT_X, 0);          /*&lt; Rotation of the instance around the x axis. */
+variable_instance_set(id, PEd_ROT_Y, 0);          /*&lt; Rotation of the instance around the y axis. */
+variable_instance_set(id, PEd_ROT_Z, 1);          /*&lt; Rotation of the instance around the z axis. */
 
-PEd_COLOUR = c_white;   /*&lt; The blend color of the instance. */
-PEd_ALPHA = 1;          /*&lt; The alpha of the instance. */
+variable_instance_set(id, PEd_COLOUR, c_white);   /*&lt; The blend color of the instance. */
+variable_instance_set(id, PEd_ALPHA, 1);          /*&lt; The alpha of the instance. */
 </string>
           </argument>
         </arguments>

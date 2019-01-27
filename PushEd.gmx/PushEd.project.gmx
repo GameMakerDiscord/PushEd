@@ -433,7 +433,6 @@
         <script>scripts\PEd_dsListInsertMap.gml</script>
         <script>scripts\PEd_dsListInsertUnique.gml</script>
         <script>scripts\PEd_getFloat.gml</script>
-        <script>scripts\PEd_getVarFromStr.gml</script>
         <script>scripts\PEd_checkSurface.gml</script>
         <script>scripts\PEd_keyToString.gml</script>
         <script>scripts\PEd_removeFromStr.gml</script>
