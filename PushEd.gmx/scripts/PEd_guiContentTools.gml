@@ -230,7 +230,7 @@ if (toolsTileEditorShow)
     var _inputWidth = round((_singleInputWidth - 4) * 0.5);
     var _inputX = _contentX + _columnLeftWidth + 4;
     
-    var _input = PEd_guiDrawInput(_inputX, _contentY, _inputWidth, tileGridW);
+    var _input = PEd_guiDrawInput(_inputX, _contentY, _inputWidth, tileGridW, true);
     if (!is_undefined(_input)) 
     {
         tileGridW = clamp(round(_input), 1, _backgroundWidth);

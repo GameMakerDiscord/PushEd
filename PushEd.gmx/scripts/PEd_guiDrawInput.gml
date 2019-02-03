@@ -21,14 +21,10 @@ var _width = argument[2];
 var _active = (guiInputActive == _id);
 
 var _value;
-if (guiInputActive == _id)
-{
+if (_active)
     _value = guiInputString;
-}
 else
-{
     _value = string(argument[3]);
-}
 var _type = is_real(argument[3]);
 var _stringLength = string_length(_value);
 var _mouseOver = (PEd_guiShapeIsHovered(_delegate)
@@ -40,9 +36,7 @@ var _maxCharCount = floor((_width - _padding * 2 ) / guiFontWidth);
 
 var _disabled = false;
 if (argument_count > 4)
-{
     _disabled = argument[4];
-}
 
 ////////////////////////////////////////////////////////////////////////////////
 //
@@ -52,7 +46,7 @@ if (argument_count > 4)
 // Background
 draw_sprite_ext(guiInputSprite, 0, _x, _y, 1, 1, 0, PEdColour.Input, 1);
 draw_sprite_stretched_ext(guiInputSprite, 1, _x + guiInputSpriteWidth, _y,
-                      _width - guiInputSpriteWidth * 2, guiInputSpriteHeight, PEdColour.Input, 1);
+    _width - guiInputSpriteWidth * 2, guiInputSpriteHeight, PEdColour.Input, 1);
 draw_sprite_ext(guiInputSprite, 2, _x + _width - guiInputSpriteWidth, _y, 1, 1, 0, PEdColour.Input, 1);
 
 // Text
@@ -69,13 +63,9 @@ if (_mouseOver)
 if (_active)
 {
     if (guiInputIndex[1] - guiInputDrawIndexStart > _maxCharCount)
-    {
         guiInputDrawIndexStart += guiInputIndex[1] - guiInputDrawIndexStart - _maxCharCount;
-    }
     else if (guiInputDrawIndexStart > guiInputIndex[1])
-    {
         guiInputDrawIndexStart -= guiInputDrawIndexStart - guiInputIndex[1];
-    }
 
     var _drawValue = string_copy(_value, guiInputDrawIndexStart, _maxCharCount);
 
@@ -100,20 +90,30 @@ if (_active)
         PEd_guiDrawRectangle(_rectMinX, _textY, _rectMaxX - _rectMinX, guiFontHeight, _colSelection);
         // Selected text
         draw_text_colour(_rectMinX, _textY, string_copy(_drawValue, _minIndex + 1, _maxIndex - _minIndex),
-                         PEdColour.TextSelected, PEdColour.TextSelected, PEdColour.TextSelected, PEdColour.TextSelected, 1);
+            PEdColour.TextSelected, PEdColour.TextSelected, PEdColour.TextSelected, PEdColour.TextSelected, 1);
         // Text after selection
         draw_text(_rectMaxX, _textY, string_delete(_drawValue, 1, _maxIndex));
     }
+    
+    // Draw highlight
+    draw_sprite_ext(guiInputSprite, 3, _x, _y, 1, 1, 0, PEdColour.Active, 1);
+    draw_sprite_stretched_ext(guiInputSprite, 4, _x + guiInputSpriteWidth, _y,
+        _width - guiInputSpriteWidth * 2, guiInputSpriteHeight, PEdColour.Active, 1);
+    draw_sprite_ext(guiInputSprite, 5, _x + _width - guiInputSpriteWidth, _y, 1, 1, 0, PEdColour.Active, 1);
 }
 else
 {
     var _drawValue = _value;
-    if (argument_count > 5
-        && _value == "")
-    {
+    if (argument_count > 5 && _value == "")
         _drawValue = argument[5];
-    }
-    PEd_guiDrawTextPart(_textX, _textY, _drawValue, _maxCharCount * guiFontWidth);
+    
+    var _colour;
+    if (_disabled)
+        _colour = PEdColour.Disabled;
+    else
+        _colour = PEdColour.Text;
+
+    PEd_guiDrawTextPart(_textX, _textY, _drawValue, _maxCharCount * guiFontWidth, _colour);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -124,8 +124,7 @@ if (mouse_check_button_pressed(mb_left)
     || mouse_check_button_pressed(mb_right)) 
 {
     // Select input
-    if (_mouseOver
-        && !_disabled)
+    if (_mouseOver && !_disabled)
     {
         if (guiInputActive == noone) 
         {
@@ -146,13 +145,9 @@ if (mouse_check_button_pressed(mb_left)
         // Return value when clicked outside of the input
         guiInputActive = noone;
         if (PEd_guiShapeExists(_delegate))
-        {
             PEd_guiRequestRedraw(_delegate);
-        }
         if (_type)
-        {
             return real(_value);
-        }
         return _value;
     }
 }
@@ -160,18 +155,14 @@ if (mouse_check_button_pressed(mb_left)
 if (_active) 
 {
     // Select text
-    if (mouse_check_button(mb_left)
-        && _mouseOver) 
+    if (mouse_check_button(mb_left) /*&& _mouseOver*/) 
     {
         var _index = clamp(round((guiMouseX - _xStart - _padding) / guiFontWidth) + guiInputDrawIndexStart, 1, _stringLength + 1);
         if (mouse_check_button_pressed(mb_left))
-        {
             guiInputIndex[0] = _index;
-        }
         guiInputIndex[1] = _index;
     }
-    else if (mouse_check_button_pressed(mb_right)
-        /*&& _mouseOver*/)
+    else if (mouse_check_button_pressed(mb_right) && _mouseOver)
     {
         // Open context menu
         var _contextMenu = PEd_guiCreateContextMenu();
@@ -210,13 +201,9 @@ if (_active)
         // Return value when enter is pressed
         guiInputActive = noone;
         if (PEd_guiShapeExists(_delegate))
-        {
             PEd_guiRequestRedraw(_delegate);
-        }
         if (_type)
-        {
             return real(_value);
-        }
         return _value;
     }
     else if (keyboard_check_pressed(vk_escape))
