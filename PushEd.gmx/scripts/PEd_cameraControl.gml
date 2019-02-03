@@ -88,10 +88,14 @@ if (mouseInViewport)
         
         if (_wheel != 0) 
         {
+            var _centerX = view_xview[0] + view_wview[0] * 0.5;
+            var _centerY = view_yview[0] + view_hview[0] * 0.5;
             viewZoom -= _wheel * 0.25 * max(1, keyboard_check(vk_shift) * 4);
             viewZoom = max(0.25, viewZoom);
             view_wview[0] = view_wport[0] * viewZoom;
             view_hview[0] = view_hport[0] * viewZoom;
+            view_xview[0] = _centerX - view_wview[0] * 0.5;
+            view_yview[0] = _centerY - view_hview[0] * 0.5;
         }
     }
 }
@@ -145,7 +149,7 @@ if (global.pedUsing3D)
         y += lengthdir_y(_speed, direction);
         _move = 1;
     }
-    else if (keyboard_check(ord ("S"))) 
+    else if (keyboard_check(ord("S"))) 
     {
         x -= lengthdir_x(_speed, direction);
         y -= lengthdir_y(_speed, direction);
