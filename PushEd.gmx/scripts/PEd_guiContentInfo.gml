@@ -5,6 +5,6 @@
  * @return {vec2} The content size.
  */
 var _container = argument0;
-var _text = "PushEd 1.5.3"; // TODO: Update on new release!
+var _text = "PushEd " + PEd_VERSION;
 draw_text(8, 8, _text);
 return PEd_vec2(string_width(_text) + 16, string_height(_text) + 16);

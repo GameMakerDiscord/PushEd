@@ -3,7 +3,9 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <NewExtensions/>
+  <NewExtensions>
+    <extension index="0">extensions\PushEd</extension>
+  </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprites name="PushEd">
@@ -21,14 +23,18 @@
         <sprite>sprites\PEd_guiSprWarning</sprite>
         <sprite>sprites\PEd_guiSprWindowCross</sprite>
       </sprites>
-      <sprite>sprites\PEd_sprTest</sprite>
       <sprite>sprites\PEd_sprDummy2D</sprite>
+    </sprites>
+    <sprites name="Example">
+      <sprite>sprites\sprSmiley</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="PushEd">
       <background>background\PEd_bgrDef</background>
-      <background>background\PEd_bgrTiles</background>
+    </backgrounds>
+    <backgrounds name="Example">
+      <background>background\bgrTiles</background>
     </backgrounds>
   </backgrounds>
   <paths name="paths"/>
@@ -712,14 +718,6 @@
     </fonts>
   </fonts>
   <objects name="objects">
-    <objects name="PEdExample">
-      <object>objects\oBlank</object>
-      <object>objects\oBlock</object>
-      <object>objects\oCone</object>
-      <object>objects\oCylinder</object>
-      <object>objects\oEllipsoid</object>
-      <object>objects\oSprite</object>
-    </objects>
     <objects name="PushEd">
       <object>objects\PEd_oEditor</object>
       <object>objects\PEd_oObject</object>
@@ -727,6 +725,14 @@
       <object>objects\PEd_oObject3D</object>
       <object>objects\PEd_oPivot</object>
       <object>objects\PEd_oPlay</object>
+    </objects>
+    <objects name="Example">
+      <object>objects\oBlank</object>
+      <object>objects\oBlock</object>
+      <object>objects\oCone</object>
+      <object>objects\oCylinder</object>
+      <object>objects\oEllipsoid</object>
+      <object>objects\oSprite</object>
     </objects>
   </objects>
   <rooms name="rooms">

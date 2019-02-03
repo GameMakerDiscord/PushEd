@@ -35,9 +35,10 @@ if (contentBrowserShowObjects)
             if (PEd_guiDrawListItem(_name, _contentX, _contentY, contentBrowserIndexObject == i, editMode != 0)) 
             {
                 // Create object
+                var _objectIndex = asset_get_index(_name);
                 if (contentBrowserIndexObject == i) 
                 {
-                    var _id = PEd_instanceCreate(_room, PEd_oPivot.x, PEd_oPivot.y, i);
+                    var _id = PEd_instanceCreate(_room, PEd_oPivot.x, PEd_oPivot.y, _objectIndex);
                     PEd_instanceSetPosX(_id, PEd_oPivot.x);
                     PEd_instanceSetPosY(_id, PEd_oPivot.y);
                     PEd_instanceSetPosZ(_id, PEd_oPivot.z);
@@ -47,7 +48,7 @@ if (contentBrowserShowObjects)
                 else 
                 {
                     contentBrowserIndexObject = i;
-                    guiDnDObject = asset_get_index(_name);
+                    guiDnDObject = _objectIndex;
                 }
             }
             _contentY += guiLineHeight;

@@ -677,20 +677,5 @@
     <option_xbone_texture_page>1024</option_xbone_texture_page>
     <option_xbone_title_id></option_xbone_title_id>
   </Options>
-  <ConfigConstants>
-    <constants number="12">
-      <constant name="PEd_POS_X">"x"</constant>
-      <constant name="PEd_POS_Y">"y"</constant>
-      <constant name="PEd_POS_Z">"z"</constant>
-      <constant name="PEd_ROT_X">"rotX"</constant>
-      <constant name="PEd_ROT_Y">"rotY"</constant>
-      <constant name="PEd_ROT_Z">"image_angle"</constant>
-      <constant name="PEd_SCALE_X">"image_xscale"</constant>
-      <constant name="PEd_SCALE_Y">"image_yscale"</constant>
-      <constant name="PEd_SCALE_Z">"scaleZ"</constant>
-      <constant name="PEd_COLOUR">"image_blend"</constant>
-      <constant name="PEd_ALPHA">"image_alpha"</constant>
-      <constant name="PEd_CREATE_DUMMY_2D">true</constant>
-    </constants>
-  </ConfigConstants>
+  <ConfigConstants/>
 </Config>
