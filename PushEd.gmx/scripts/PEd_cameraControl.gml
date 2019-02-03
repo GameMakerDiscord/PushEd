@@ -14,45 +14,25 @@ if (guiInputActive != noone
 // Camera speed
 //
 if (keyboard_check_pressed(vk_numpad0)) 
-{
     camSpeed = 0.5;
-}
 else if (keyboard_check_pressed(vk_numpad1)) 
-{
     camSpeed = 1;
-}
 else if (keyboard_check_pressed(vk_numpad2)) 
-{
     camSpeed = 4;
-}
 else if (keyboard_check_pressed(vk_numpad3)) 
-{
     camSpeed = 6;
-}
 else if (keyboard_check_pressed(vk_numpad4)) 
-{
     camSpeed = 8;
-}
 else if (keyboard_check_pressed(vk_numpad5)) 
-{
     camSpeed = 10;
-}
 else if (keyboard_check_pressed(vk_numpad6)) 
-{
     camSpeed = 12;
-}
 else if (keyboard_check_pressed(vk_numpad7)) 
-{
     camSpeed = 14;
-}
 else if (keyboard_check_pressed(vk_numpad8)) 
-{
     camSpeed = 16;
-}
 else if (keyboard_check_pressed(vk_numpad9)) 
-{
     camSpeed = 18;
-}
     
 ////////////////////////////////////////////////////////////////////////////////
 //
@@ -82,9 +62,7 @@ if (mouseInViewport)
         var _wheel = mouse_wheel_up() - mouse_wheel_down();
         
         if (_wheel == 0) 
-        {
             _wheel = (keyboard_check(vk_pageup) - keyboard_check(vk_pagedown)) * 0.25;
-        }
         
         if (_wheel != 0) 
         {
@@ -107,21 +85,14 @@ if (global.pedUsing3D)
     // Look around with arrows
     //
     if (keyboard_check(vk_left)) 
-    {
         direction += 3;
-    }
     else if (keyboard_check(vk_right)) 
-    {
         direction -= 3;
-    }
+
     if (keyboard_check(vk_up)) 
-    {
         camPitch = clamp(camPitch + 3, -89, 89);
-    }
     else if (keyboard_check(vk_down)) 
-    {
         camPitch = clamp(camPitch - 3, -89, 89);
-    }
      
     ////////////////////////////////////////////////////////////////////////////
     //
@@ -136,9 +107,7 @@ if (global.pedUsing3D)
     
     // Run
     if (keyboard_check(vk_shift)) 
-    {
         _run = 4;
-    }
     
     var _speed = camSpeed * _run;
     
@@ -179,9 +148,7 @@ if (global.pedUsing3D)
         var _l = camSpeed * 10;
         
         if (keyboard_check(vk_shift)) 
-        {
             _l *= 2;
-        }
         
         x += lengthdir_x(_l, direction) * (mouse_wheel_up() - mouse_wheel_down());
         y += lengthdir_y(_l, direction) * (mouse_wheel_up() - mouse_wheel_down());
@@ -197,25 +164,15 @@ else
     var _speed = camSpeed * 5;
     
     if (keyboard_check(vk_shift)) 
-    {
         _speed *= 4;
-    }
     
     if (keyboard_check(vk_left)) 
-    {
         view_xview[0] -= _speed;
-    }
     else if (keyboard_check(vk_right)) 
-    {
         view_xview[0] += _speed;
-    }
     
     if (keyboard_check(vk_up)) 
-    {
         view_yview[0] -= _speed;
-    }
     else if (keyboard_check(vk_down)) 
-    {
         view_yview[0] += _speed;
-    }
 }
