@@ -77,29 +77,32 @@ if (_active)
         guiInputDrawIndexStart -= guiInputDrawIndexStart - guiInputIndex[1];
     }
 
-    _value = string_copy(_value, guiInputDrawIndexStart, _maxCharCount);
+    var _drawValue = string_copy(_value, guiInputDrawIndexStart, _maxCharCount);
 
     if (guiInputIndex[0] == guiInputIndex[1])
     {
         // Beam
         var _beamX = _textX + guiFontWidth * (guiInputIndex[0] - guiInputDrawIndexStart);
-        draw_text(_textX, _textY, _value);
+        draw_text(_textX, _textY, _drawValue);
         PEd_guiDrawRectangle(_beamX, _textY, 1, guiFontHeight, _colSelection);
     }
     else
     {
         // Selection
-        //var _stringLength = string_length(_value);
         var _minIndex = clamp(min(guiInputIndex[0], guiInputIndex[1]) - guiInputDrawIndexStart, 0, _stringLength);
         var _maxIndex = clamp(max(guiInputIndex[0], guiInputIndex[1]) - guiInputDrawIndexStart, 0, _stringLength);
-        var _rectMinX = _textX + guiFontWidth * _minIndex;
-        var _rectMaxX = _textX + guiFontWidth * _maxIndex;
+        var _rectMinX = _textX + guiFontWidth * max(_minIndex, 0);
+        var _rectMaxX = _textX + guiFontWidth * min(_maxIndex, _maxCharCount);
         
-        draw_text(_textX, _textY, string_copy(_value, 1, _minIndex));                                   // Text before selection
-        PEd_guiDrawRectangle(_rectMinX, _textY, _rectMaxX - _rectMinX, guiFontHeight, _colSelection);   // Selection rectangle
-        draw_text_colour(_rectMinX, _textY, string_copy(_value, _minIndex + 1, _maxIndex - _minIndex),  // Selected text
+        // Text before selection
+        draw_text(_textX, _textY, string_copy(_drawValue, 1, _minIndex));
+        // Selection rectangle
+        PEd_guiDrawRectangle(_rectMinX, _textY, _rectMaxX - _rectMinX, guiFontHeight, _colSelection);
+        // Selected text
+        draw_text_colour(_rectMinX, _textY, string_copy(_drawValue, _minIndex + 1, _maxIndex - _minIndex),
                          PEdColour.TextSelected, PEdColour.TextSelected, PEdColour.TextSelected, PEdColour.TextSelected, 1);
-        draw_text(_rectMaxX, _textY, string_delete(_value, 1, _maxIndex));                              // Text after selection
+        // Text after selection
+        draw_text(_rectMaxX, _textY, string_delete(_drawValue, 1, _maxIndex));
     }
 }
 else
@@ -167,7 +170,7 @@ if (_active)
         guiInputIndex[1] = _index;
     }
     else if (mouse_check_button_pressed(mb_right)
-        && _mouseOver)
+        /*&& _mouseOver*/)
     {
         // Open context menu
         var _contextMenu = PEd_guiCreateContextMenu();
@@ -214,6 +217,11 @@ if (_active)
             return real(_value);
         }
         return _value;
+    }
+    else if (keyboard_check_pressed(vk_escape))
+    {
+        guiInputActive = noone;
+        return argument[3];
     }
 }
 
