@@ -129,6 +129,7 @@ if (mouse_check_button_pressed(mb_left)
     {
         if (guiInputActive == noone) 
         {
+            _active = true;
             guiInputActive = _id;
             guiInputString = _value;
             guiInputDrawIndexStart = 1;
@@ -204,9 +205,9 @@ if (_active)
         }*/
     }
         
-    // Return value when enter is pressed
     if (keyboard_check_pressed(vk_enter)) 
     {
+        // Return value when enter is pressed
         guiInputActive = noone;
         if (PEd_guiShapeExists(_delegate))
         {
@@ -220,6 +221,7 @@ if (_active)
     }
     else if (keyboard_check_pressed(vk_escape))
     {
+        // Return original value
         guiInputActive = noone;
         return argument[3];
     }
