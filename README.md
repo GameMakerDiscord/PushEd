@@ -3,8 +3,6 @@ Or shortly just PEd, is a 2D/3D level editor for GameMaker: Studio 1.4, original
 
 Maintained by: [kraifpatrik](https://github.com/kraifpatrik)
 
-More info and support: [Discord](https://discord.gg/RtvAvUu)
-
 ![Screenshot 2D](2d.png)
 ![Screenshot 3D](3d.png)
 
