@@ -14,10 +14,10 @@ if (global.pedUsing3D)
 {
     // Construct code
     var _autocomplete = _startInd;
-    _autocomplete += "z=" + string(_inst.z) + ";"
-                   + "rotX=" + string(_inst.rotX) + ";"
-                   + "rotY=" + string(_inst.rotY) + ";"
-                   + "scaleZ=" + string(_inst.scaleZ) + ";";
+    _autocomplete += "z=" + string(PEd_instanceGetPosZ(_inst)) + ";"
+                   + "rotX=" + string(PEd_instanceGetRotX(_inst)) + ";"
+                   + "rotY=" + string(PEd_instanceGetRotY(_inst)) + ";"
+                   + "scaleZ=" + string(PEd_instanceGetScaleZ(_inst)) + ";";
     _autocomplete += _endInd;
     
     // Save code

@@ -3,7 +3,7 @@
   <name>PushEd</name>
   <version>1.5.4</version>
   <packageID></packageID>
-  <ProductID>ACBD3CFF4E539AD869A0E8E3B4B022DD</ProductID>
+  <ProductID></ProductID>
   <date>03/02/19</date>
   <license>Free to use, also for commercial games.</license>
   <description></description>
@@ -45,6 +45,7 @@
     <Resource>Sprites\PushEd\PEd_sprDummy2D</Resource>
     <Resource>Sprites\Example\sprSmiley</Resource>
     <Resource>Backgrounds\PushEd\PEd_bgrDef</Resource>
+    <Resource>Backgrounds\Example\bgrTiles</Resource>
     <Resource>Scripts\PushEd\Actions\PEd_actClearRoom</Resource>
     <Resource>Scripts\PushEd\Actions\PEd_actClearSelection</Resource>
     <Resource>Scripts\PushEd\Actions\PEd_actCloseWindow</Resource>
@@ -574,6 +575,12 @@
     <Resource>Objects\PushEd\PEd_oObject3D</Resource>
     <Resource>Objects\PushEd\PEd_oPivot</Resource>
     <Resource>Objects\PushEd\PEd_oPlay</Resource>
+    <Resource>Objects\Example\oBlank</Resource>
+    <Resource>Objects\Example\oBlock</Resource>
+    <Resource>Objects\Example\oCone</Resource>
+    <Resource>Objects\Example\oCylinder</Resource>
+    <Resource>Objects\Example\oEllipsoid</Resource>
+    <Resource>Objects\Example\oSprite</Resource>
     <Resource>Rooms\PushEd\PEd_rmEditor</Resource>
     <Resource>Rooms\PushEd\PEd_rmPlay</Resource>
   </IncludedResources>
