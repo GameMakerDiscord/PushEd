@@ -1,5 +1,7 @@
 # PushEd
-Or shortly just PEd, is a 2D/3D level editor for GameMaker: Studio 1.4, originally released by our team [BlueBurn](https://blueburn.cz/) in 2014 as a paid extension. Now, on the sunset of GMS1.4, it's released for free, for everyone, forever!
+> Or shortly just PEd, is a 2D/3D level editor for GameMaker: Studio 1.4, originally released by our team [BlueBurn](https://blueburn.cz/) in 2014 as a paid extension. Now, on the sunset of GMS1.4, it's released for free, for everyone, forever!
+
+![License](https://img.shields.io/github/license/GameMakerDiscord/PushEd)
 
 Maintained by: [kraifpatrik](https://github.com/kraifpatrik)
 
