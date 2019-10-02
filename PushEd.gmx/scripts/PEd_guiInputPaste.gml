@@ -1,15 +1,13 @@
 /// PEd_guiInputPaste()
-/**
- * @brief Pastes text from the clipboard to currently active input.
- */
-if (clipboard_has_text()) 
+/// @brief Pastes text from the clipboard to currently active input.
+if (clipboard_has_text())
 {
     // Delete selected part
     if (guiInputIndex[0] != guiInputIndex[1])
     {
         PEd_guiInputDeleteSelectedPart();
     }
-        
+
     // Insert string
     guiInputString = string_insert(clipboard_get_text(),
                                    guiInputString,

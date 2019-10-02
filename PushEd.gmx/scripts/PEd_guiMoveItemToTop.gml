@@ -1,8 +1,6 @@
 /// PEd_guiMoveItemToTop(item)
-/**
- * @brief Moves the item to the top while preserving depth order.
- * @param {real} item The id of the item to move.
- */
+/// @brief Moves the item to the top while preserving depth order.
+/// @param {real} item The id of the item to move.
 var _item = argument0;
 var _delegate = PEd_guiShapeGetDelegate(_item);
 
@@ -19,12 +17,12 @@ if (_index >= 0)
 {
     var i = _index + 1;
     var _itemDepth = PEd_guiShapeGetDepth(_item);
-    
+
     while (i < _n && PEd_guiShapeGetDepth(_items[| i]) <= _itemDepth)
     {
         ++i;
     }
-    
+
     PEd_dsListInsertMap(_items, i, _item);
     ds_list_delete(_items, _index);
 }

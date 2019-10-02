@@ -1,9 +1,7 @@
 /// PEd_loadRoomFromGMX(file)
-/**
- * @brief Loads a room from the XML file.
- * @param {string} file The path to the XML file.
- * @return {real} The id of the room or noone on fail.
- */
+/// @brief Loads a room from the XML file.
+/// @param {string} file The path to the XML file.
+/// @return {real} The id of the room or noone on fail.
 var _path = argument0;
 var _root = PEd_xmlRead(_path);
 if (_root == noone)
@@ -26,56 +24,56 @@ for (var i = PEd_xmlGetNumberOfChildElements(_root) - 1; i >= 0; i--)
     var _element = PEd_xmlGetChildElement(_root, i);
     var _name = PEd_xmlGetElementName(_element);
     var _value = PEd_xmlGetElementValue(_element);
-    
+
     switch (_name)
     {
         case "caption":
             PEd_roomSetCaption(_room, _value);
             break;
-            
+
         case "width":
             PEd_roomSetWidth(_room, _value);
             break;
-            
+
         case "height":
             PEd_roomSetHeight(_room, _value);
             break;
-            
+
         case "vsnap":
             PEd_roomSetSnapV(_room, _value);
             break;
-            
+
         case "hsnap":
             PEd_roomSetSnapH(_room, _value);
             break;
-            
+
         case "speed":
             PEd_roomSetSpeed(_room, _value);
             break;
-        
+
         case "persistent":
             PEd_roomSetPersistent(_room, abs(_value));
             break;
-            
+
         case "colour":
             PEd_roomSetColour(_room, _value);
             break;
-            
+
         case "showcolour":
             PEd_roomSetShowColour(_room, abs(_value));
             break;
-            
+
         case "code":
             PEd_roomSetCode(_room, _value);
             break;
-            
+
         case "makerSettings":
             for (var j = PEd_xmlGetNumberOfChildElements(_element) - 1; j >= 0; j--)
             {
                 var _child = PEd_xmlGetChildElement(_element, j);
                 var _childName = PEd_xmlGetElementName(_child);
                 var _childValue = PEd_xmlGetElementValue(_child);
-                
+
                 switch (_childName)
                 {
                     case "showGrid":
@@ -84,19 +82,19 @@ for (var i = PEd_xmlGetNumberOfChildElements(_root) - 1; i >= 0; i--)
                 }
             }
             break;
-            
+
         case "PhysicsWorld":
             PEd_physicsWorldSetEnabled(_physicsWorld, abs(_value));
             break;
-            
+
         case "PhysicsWorldGravityX":
             PEd_physicsWorldSetGravityX(_physicsWorld, _value);
             break;
-            
+
         case "PhysicsWorldGravityY":
             PEd_physicsWorldSetGravityY(_physicsWorld, _value);
             break;
-            
+
         case "PhysicsWorldPixToMeters":
             PEd_physicsWorldSetPxToM(_physicsWorld, _value);
             break;
@@ -115,10 +113,10 @@ for (var i = 0; i < _numberOfViews; i++)
     var _v = _views[| i];
     var _viewport = PEd_roomGetViewport(_room, i);
     PEd_viewportSetVisible(_viewport, abs(PEd_xmlGetElementAttribute(_v, "visible")));
-    
+
     var _objName = PEd_xmlGetElementAttribute(_v, "objName");
     if (_objName != "<undefined>")
-    { 
+    {
         var _obj = asset_get_index(_objName);
         if (_obj >= 0)
         {
@@ -129,7 +127,7 @@ for (var i = 0; i < _numberOfViews; i++)
             show_error("Could not set view " + string(i) + " to follow object '" + _objName + "'. Object was not found.", false);
         }
     }
-    
+
     PEd_viewportSetX(_viewport, PEd_xmlGetElementAttribute(_v, "xview"));
     PEd_viewportSetY(_viewport, PEd_xmlGetElementAttribute(_v, "yview"));
     PEd_viewportSetWidth(_viewport, PEd_xmlGetElementAttribute(_v, "wview"));
@@ -191,7 +189,7 @@ for (var i = 0; i < _numberOfInstances; i++)
     var _inst = _instances[| i];
     var _objName = PEd_xmlGetElementAttribute(_inst, "objName");
     var _instName = PEd_xmlGetElementAttribute(_inst, "name");
-    
+
     var _obj = asset_get_index(_objName);
     if (_obj >= 0)
     {
@@ -199,21 +197,21 @@ for (var i = 0; i < _numberOfInstances; i++)
                                      PEd_xmlGetElementAttribute(_inst, "x"),
                                      PEd_xmlGetElementAttribute(_inst, "y"),
                                      _obj);
-        
+
         PEd_instanceSetName(_id, _instName);
-        
+
         var _code = PEd_xmlGetElementAttribute(_inst, "code");
         PEd_instanceSetCode(_id, _code);
-        
+
         PEd_instanceSetScaleX(_id, PEd_xmlGetElementAttribute(_inst, "scaleX"));
         PEd_instanceSetScaleY(_id, PEd_xmlGetElementAttribute(_inst, "scaleY"));
         PEd_instanceSetRotZ(_id, PEd_xmlGetElementAttribute(_inst, "rotation"));
-        
+
         var _argb = PEd_xmlGetElementAttribute(_inst, "colour");
         PEd_instanceSetColour(_id, PEd_argbToColour(_argb));
         PEd_instanceSetAlpha(_id, PEd_argbToAlpha(_argb));
-        
-        with (_id) 
+
+        with (_id)
         {
             PEd_codeProcess(_code);
         }
@@ -237,7 +235,7 @@ for (var i = 0; i < _numberOfTiles; i++)
     var _t = _tiles[| i];
     var _bgName = PEd_xmlGetElementAttribute(_t, "bgName");
     var _bg = asset_get_index(_bgName);
-    
+
     if (_bg >= 0)
     {
         var _id = PEd_createTile(_room,
@@ -249,11 +247,11 @@ for (var i = 0; i < _numberOfTiles; i++)
                                  PEd_xmlGetElementAttribute(_t, "x"),
                                  PEd_xmlGetElementAttribute(_t, "y"),
                                  PEd_xmlGetElementAttribute(_t, "depth"));
-                           
+
         tile_set_scale(_id,
                        PEd_xmlGetElementAttribute(_t, "scaleX"),
                        PEd_xmlGetElementAttribute(_t, "scaleY"));
-    
+
         var _argb = PEd_xmlGetElementAttribute(_t, "colour");
         tile_set_blend(_id, PEd_argbToColour(_argb));
         tile_set_alpha(_id, PEd_argbToAlpha(_argb));

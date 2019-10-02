@@ -1,9 +1,7 @@
 /// PEd_createSaveTile(tile)
-/**
- * @brief Stores the tile data into a ds_map.
- * @param {real} tile The id of the tile.
- * @return {real} The ds_map.
- */
+/// @brief Stores the tile data into a ds_map.
+/// @param {real} tile The id of the tile.
+/// @return {real} The ds_map.
 var _saveTile = ds_map_create();
 _saveTile[? "background" ] = background_get_name(tile_get_background(argument0));
 _saveTile[? "left"] = tile_get_left(argument0);

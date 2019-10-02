@@ -1,8 +1,6 @@
 /// PEd_guiContextMenuItemUpdate(contextMenuItem)
-/**
- * @brief Updates the context menu item.
- * @param {real} contextMenuItem The id of the context menu item.
- */
+/// @brief Updates the context menu item.
+/// @param {real} contextMenuItem The id of the context menu item.
 var _item = argument0;
 PEd_guiShapeUpdate(_item);
 

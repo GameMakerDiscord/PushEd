@@ -1,8 +1,6 @@
 /// PEd_roomDestroy(room)
-/**
- * @brief Destroys the room and all instances and tiles that it contains.
- * @param {real} room The id of the room.
- */
+/// @brief Destroys the room and all instances and tiles that it contains.
+/// @param {real} room The id of the room.
 var _room = argument0;
 var _instances = PEd_roomGetInstances(_room);
 var _tiles = PEd_roomGetTiles(_room);

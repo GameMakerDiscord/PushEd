@@ -1,11 +1,9 @@
 /// PEd_guiDrawCheckbox(x, y, state)
-/**
- * @brief Draws a checkbox at the given position.
- * @param {real} x     The x position to draw the checkbox at.
- * @param {real} y     The y position to draw the checkbox at.
- * @param {bool} state The current state of the checkbox.
- * @return {bool} Return the new state of the checkbox.
- */
+/// @brief Draws a checkbox at the given position.
+/// @param {real} x The x position to draw the checkbox at.
+/// @param {real} y The y position to draw the checkbox at.
+/// @param {bool} state The current state of the checkbox.
+/// @return {bool} Return the new state of the checkbox.
 var _delegate = guiShapeFilling;
 var _sprite = PEd_guiSprCheckbox;
 var _state = argument2;

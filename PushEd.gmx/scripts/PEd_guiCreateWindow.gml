@@ -1,9 +1,7 @@
 /// PEd_guiCreateWindow(title)
-/**
- * @brief Creates a new window.
- * @param {string} title The window title.
- * @return {real} The id of the created window.
- */
+/// @brief Creates a new window.
+/// @param {string} title The window title.
+/// @return {real} The id of the created window.
 var _window = PEd_guiCreateCompoundShape(PEdGUIShape.Window);
 var _titleBar = PEd_guiCreateContainer();
 var _container = PEd_guiCreateContainer();

@@ -1,12 +1,10 @@
 /// PEd_guiCreateDock([x, y, width, height])
-/**
- * @brief Creates a new dock.
- * @param {real} [x]      The x positon to create the dock at.
- * @param {real} [y]      The y positon to create the dock at.
- * @param {real} [width]  The width of the dock.
- * @param {real} [height] The width of the dock.
- * @return {real} The id of the created dock.
- */
+/// @brief Creates a new dock.
+/// @param {real} [x] The x positon to create the dock at.
+/// @param {real} [y] The y positon to create the dock at.
+/// @param {real} [width] The width of the dock.
+/// @param {real} [height] The width of the dock.
+/// @return {real} The id of the created dock.
 var _dock = PEd_guiCreateCompoundShape(PEdGUIShape.Dock);
 if (argument_count == 4)
 {

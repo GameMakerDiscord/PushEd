@@ -1,8 +1,6 @@
 /// PEd_guiMenuBarItemDraw(menuBarItem)
-/**
- * @brief Draws the menu bar item.
- * @param {real} menuBarItem The id of the menu bar item.
- */
+/// @brief Draws the menu bar item.
+/// @param {real} menuBarItem The id of the menu bar item.
 var _item = argument0;
 var _x = PEd_guiShapeGetX(_item);
 var _y = PEd_guiShapeGetY(_item);

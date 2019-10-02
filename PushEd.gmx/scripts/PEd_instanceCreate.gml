@@ -1,12 +1,10 @@
 /// PEd_instanceCreate(room, x, y, object)
-/**
- * @brief Creates an instance of the object and adds it to the room.
- * @param {real} room   The id of the room.
- * @param {real} x      The x position to create the instance at.
- * @param {real} y      The y position to create the instance at.
- * @param {real} object The id of the object to create an instance of.
- * @return {real} The instance id.
- */
+/// @brief Creates an instance of the object and adds it to the room.
+/// @param {real} room The id of the room.
+/// @param {real} x The x position to create the instance at.
+/// @param {real} y The y position to create the instance at.
+/// @param {real} object The id of the object to create an instance of.
+/// @return {real} The instance id.
 var _room = argument0;
 var _x = argument1;
 var _y = argument2;
@@ -30,7 +28,7 @@ if (room != PEd_rmEditor)
 if (PEd_CREATE_DUMMY_2D)
 {
     var _id;
-    
+
     if (object_is_ancestor(_object, PEd_oObject3D))
     {
         // 3D object
@@ -47,7 +45,7 @@ if (PEd_CREATE_DUMMY_2D)
             _id.sprite_index = _sprite;
         }
     }
-    
+
     with (_id)
     {
         pedRoom = _room;

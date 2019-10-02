@@ -1,11 +1,9 @@
 /// PEd_createRoom(name, width, height)
-/**
- * @brief Creates a new room.
- * @param {string} name   The name of the room.
- * @param {real}   width  The width of the room.
- * @param {real}   height The height of the room.
- * @return {real} room The id of the room.
- */
+/// @brief Creates a new room.
+/// @param {string} name The name of the room.
+/// @param {real} width The width of the room.
+/// @param {real} height The height of the room.
+/// @return {real} room The id of the room.
 var _room = ds_map_create();
 _room[? "name"] = argument[0];
 _room[? "caption"] = "";

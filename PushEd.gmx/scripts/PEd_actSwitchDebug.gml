@@ -1,5 +1,3 @@
 /// PEd_actSwitchDebug()
-/**
- * @brief Switches debug on/off.
- */
+/// @brief Switches debug on/off.
 debugShow = !debugShow;

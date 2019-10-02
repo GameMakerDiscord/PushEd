@@ -1,10 +1,8 @@
 /// PEd_tileCopy(room, tile)
-/**
- * @brief Creates a copy of the tile and adds it to the room.
- * @param {real} toom The id of the room to add the tile to.
- * @param {real} tile The id of the tile.
- * @return {real} The created copy.
- */
+/// @brief Creates a copy of the tile and adds it to the room.
+/// @param {real} toom The id of the room to add the tile to.
+/// @param {real} tile The id of the tile.
+/// @return {real} The created copy.
 var _t = PEd_createTile(argument0,
                         tile_get_background(argument1),
                         tile_get_left(argument1),

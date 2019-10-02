@@ -1,9 +1,7 @@
 /// PEd_guiCreatePanel(title)
-/**
- * @brief Creates a new panel.
- * @param {string} title The name of the panel.
- * @return {real} The id of the created panel.
- */
+/// @brief Creates a new panel.
+/// @param {string} title The name of the panel.
+/// @return {real} The id of the created panel.
 var _panel = PEd_guiCreateCompoundShape(PEdGUIShape.Panel);
 var _titleBar = PEd_guiCreateContainer();
 var _container = PEd_guiCreateContainer();

@@ -1,7 +1,5 @@
 /// PEd_guiDestroy()
-/**
- * @brief Destroys GUI.
- */
+/// @brief Destroys GUI.
 for (var i = 0; i < ds_list_size(guiShapes); i++)
 {
     var _shape = guiShapes[| i];

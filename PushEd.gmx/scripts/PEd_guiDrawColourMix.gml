@@ -1,11 +1,9 @@
 /// PEd_guiDrawColourMix(x, y, colour)
-/**
- * @brief Draws a colour mix at the given position.
- * @param {real} x      The x position to draw the colour mix at.
- * @param {real} y      The y position to draw the colour mix at.
- * @param {real} colour The colour to mix.
- * @return {real} The new mixed colour.
- */
+/// @brief Draws a colour mix at the given position.
+/// @param {real} x The x position to draw the colour mix at.
+/// @param {real} y The y position to draw the colour mix at.
+/// @param {real} colour The colour to mix.
+/// @return {real} The new mixed colour.
 var _x = argument0;
 var _y = argument1;
 var _colour = argument2;
@@ -27,12 +25,12 @@ var _edit = (PEd_guiShapeIsHovered(_container)
 var _sliderWidth = _containerWidth - _x * 2;
 PEd_guiDrawRectangle(_x, _y, _sliderWidth, guiLineHeight, PEdColour.Input);
 PEd_guiDrawRectangle(_x, _y, _sliderWidth * (_red / 255), guiLineHeight, make_colour_rgb(_red, 0, 0));
-if (_edit) 
+if (_edit)
 {
     if (guiMouseX >= _x - 2
         && guiMouseY > _y
         && guiMouseX <= _x + _sliderWidth + 2
-        && guiMouseY < _y + guiLineHeight) 
+        && guiMouseY < _y + guiLineHeight)
     {
         if (mouse_check_button(mb_left))
         {
@@ -41,17 +39,17 @@ if (_edit)
         colorShow = make_colour_rgb(_red, _green, _blue);
     }
 }
-_y  += guiLineHeight + 4;
+_y += guiLineHeight + 4;
 
 // Green
 PEd_guiDrawRectangle(_x, _y, _sliderWidth, guiLineHeight, PEdColour.Input);
 PEd_guiDrawRectangle(_x, _y, _sliderWidth * (_green / 255), guiLineHeight, make_colour_rgb(0, _green, 0));
-if (_edit) 
+if (_edit)
 {
     if (guiMouseX >= _x - 2
         && guiMouseY > _y
         && guiMouseX <= _x + _sliderWidth + 2
-        && guiMouseY < _y + guiLineHeight) 
+        && guiMouseY < _y + guiLineHeight)
     {
         if (mouse_check_button(mb_left))
         {
@@ -65,12 +63,12 @@ _y += guiLineHeight + 4;
 // Blue
 PEd_guiDrawRectangle(_x, _y, _sliderWidth, guiLineHeight, PEdColour.Input);
 PEd_guiDrawRectangle(_x, _y, _sliderWidth * (_blue / 255), guiLineHeight, make_colour_rgb(0, 0, _blue));
-if (_edit) 
+if (_edit)
 {
     if (guiMouseX >= _x - 2
         && guiMouseY > _y
         && guiMouseX <= _x + _sliderWidth + 2
-        && guiMouseY < _y + guiLineHeight) 
+        && guiMouseY < _y + guiLineHeight)
     {
         if (mouse_check_button(mb_left))
         {
@@ -86,19 +84,19 @@ var _input;
 var _inputWidth = round((_sliderWidth - 16) / 3);
 
 _input = PEd_guiDrawInput(_x, _y, _inputWidth, _red);
-if (!is_undefined(_input)) 
+if (!is_undefined(_input))
 {
     _red = clamp(round(_input), 0, 255);
 }
 
 _input = PEd_guiDrawInput(_x + _inputWidth + 8, _y, _inputWidth, _green);
-if (!is_undefined(_input)) 
+if (!is_undefined(_input))
 {
     _green = clamp(round(_input), 0, 255);
 }
 
 _input = PEd_guiDrawInput(_x + _inputWidth * 2 + 16, _y, _inputWidth, _blue);
-if (!is_undefined(_input)) 
+if (!is_undefined(_input))
 {
     _blue = clamp(round(_input), 0, 255);
 }

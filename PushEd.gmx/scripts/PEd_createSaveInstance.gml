@@ -1,9 +1,7 @@
 /// PEd_createSaveInstance(instance)
-/**
- * @brief Stores the instance data into a ds_map.
- * @param {real} instance The id of the instance.
- * @return {real} The ds_map.
- */
+/// @brief Stores the instance data into a ds_map.
+/// @param {real} instance The id of the instance.
+/// @return {real} The ds_map.
 PEd_instanceAutocompleteCode(argument0);
 var _saveInstance = ds_map_create();
 _saveInstance[? "object"] = PEd_instanceGetObjectName(argument0);

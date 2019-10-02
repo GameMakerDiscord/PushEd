@@ -1,12 +1,10 @@
 /// PEd_loadRoomFromBBMAP(file)
-/**
- * @brief Loads a room from the external *.bbmap file.
- * @param {string} file The name of the file to import from.
- * @return {real} The id of the room or noone on fail.
- */
+/// @brief Loads a room from the external *.bbmap file.
+/// @param {string} file The name of the file to import from.
+/// @return {real} The id of the room or noone on fail.
 var _path = argument0;
 
-if (!file_exists(_path)) 
+if (!file_exists(_path))
 {
     return 0;
 }
@@ -28,9 +26,9 @@ var _listViews = ds_list_create();
 //
 var _source = "";
 var _file = file_text_open_read(_path);
-if (_file != -1) 
+if (_file != -1)
 {
-    do 
+    do
     {
         _source += file_text_read_string(_file);
         file_text_readln(_file);
@@ -38,14 +36,14 @@ if (_file != -1)
     until (file_text_eof(_file));
     file_text_close(_file);
 }
-else 
+else
 {
     return noone;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 //
-//  Map and lists
+// Map and lists
 //
 ds_map_read(_map, _source);
 
@@ -147,7 +145,7 @@ if (!_isEditor)
     room_speed = _speed;
     room_persistent = _persistent;
     background_colour = _colour;
-    
+
     room_set_width(room, _width);
     room_set_height(room, _height);
 }
@@ -156,7 +154,7 @@ if (!_isEditor)
 //
 // Physics
 //
-if (_map[? "PhysicsWorld"]) 
+if (_map[? "PhysicsWorld"])
 {
     var _gravityX = _map[? "PhysicsWorldGravityX"];
     var _gravityY = _map[? "PhysicsWorldGravityY"];
@@ -179,13 +177,13 @@ if (_map[? "PhysicsWorld"])
 //
 // Backgrounds
 //
-for (var i = 0; i < ds_list_size(_listBackgrounds); i += 10) 
+for (var i = 0; i < ds_list_size(_listBackgrounds); i += 10)
 {
     var j = i div 10;
-    
+
     var _background = PEd_roomGetBackground(_room, j);
     var _image = _listBackgrounds[| i + 2];
-    
+
     if (background_exists(_image))
     {
         var _visible = _listBackgrounds[| i];
@@ -197,7 +195,7 @@ for (var i = 0; i < ds_list_size(_listBackgrounds); i += 10)
         var _speedHor = _listBackgrounds[| i + 7];
         var _speedVer = _listBackgrounds[| i + 8];
         var _stretch = _listBackgrounds[| i + 9];
-    
+
         PEd_backgroundSetVisible(_background, _visible);
         PEd_backgroundSetAsForeground(_background, _isForeground);
         PEd_backgroundSetImage(_background, _image);
@@ -208,7 +206,7 @@ for (var i = 0; i < ds_list_size(_listBackgrounds); i += 10)
         PEd_backgroundSetSpeedHor(_background, _speedHor);
         PEd_backgroundSetSpeedVer(_background, _speedVer);
         PEd_backgroundSetStretch(_background, _stretch);
-        
+
         background_visible[j] = _visible;
         background_foreground[j] = _isForeground;
         background_index[j] = _image;
@@ -218,13 +216,13 @@ for (var i = 0; i < ds_list_size(_listBackgrounds); i += 10)
         background_vtiled[j] = _tiledVer;
         background_hspeed[j] = _speedHor;
         background_vspeed[j] = _speedVer;
-        
-        if (_stretch) 
+
+        if (_stretch)
         {
             background_xscale[j] = PEd_roomGetWidth(_room) / background_get_width(_image);
             background_yscale[j] = PEd_roomGetHeight(_room) / background_get_height(_image);
         }
-        else 
+        else
         {
             background_xscale[j] = 1;
             background_yscale[j] = 1;
@@ -240,7 +238,7 @@ for (var i = 0; i < ds_list_size(_listBackgrounds); i += 10)
 //
 // Views
 //
-for (var i = 0; i < ds_list_size(_listViews); i += 14) 
+for (var i = 0; i < ds_list_size(_listViews); i += 14)
 {
     var _viewport = PEd_roomGetViewport(_room, i div 14);
     var _visible = _listViews[| i];
@@ -257,7 +255,7 @@ for (var i = 0; i < ds_list_size(_listViews); i += 14)
     var _borderVer = _listViews[| i + 11];
     var _speedHor = _listViews[| i + 12];
     var _speedVer = _listViews[| i + 13];
-    
+
     PEd_viewportSetVisible(_viewport, _visible);
     if (object_exists(_object))
     {
@@ -275,7 +273,7 @@ for (var i = 0; i < ds_list_size(_listViews); i += 14)
     PEd_viewportSetBorderVer(_viewport, _borderVer);
     PEd_viewportSetSpeedHor(_viewport, _speedHor);
     PEd_viewportSetSpeedVer(_viewport, _speedVer);
-    
+
     if (!_isEditor)
     {
         view_visible[j] = _visible;
@@ -299,10 +297,10 @@ for (var i = 0; i < ds_list_size(_listViews); i += 14)
 //
 // Tiles
 //
-for (var i = 0; i < ds_list_size(_listTiles); i += 14) 
+for (var i = 0; i < ds_list_size(_listTiles); i += 14)
 {
     var _image = _listTiles[| i];
-    
+
     if (background_exists(_image))
     {
         var _x = _listTiles[| i + 1];
@@ -316,20 +314,20 @@ for (var i = 0; i < ds_list_size(_listTiles); i += 14)
         var _scaleX = _listTiles[| i + 11];
         var _scaleY = _listTiles[| i + 12];
         var _alpha = _listTiles[| i + 13];
-        
+
         var _id = tile_add(_image, _left, _top, _width, _height, _x, _y, _depth);
         tile_set_blend(_id, _blend);
         tile_set_scale(_id, _scaleX, _scaleY);
         tile_set_alpha(_id, _alpha);
-        
+
         if (_isEditor)
         {
-            if (ds_list_find_index(tileLayers, _depth) == -1) 
+            if (ds_list_find_index(tileLayers, _depth) == -1)
             {
                 ds_list_add(tileLayers, _depth);
                 ds_list_add(tileVisible, true);
             }
-            
+
             var _tiles = PEd_roomGetTiles(_room);
             ds_list_add(_tiles, _id);
         }
@@ -344,14 +342,14 @@ for (var i = 0; i < ds_list_size(_listTiles); i += 14)
 //
 // Instances
 //
-for (var i = 0; i < ds_list_size(_listInstances); i += 10) 
+for (var i = 0; i < ds_list_size(_listInstances); i += 10)
 {
     var _objName = _listInstances[| i];
     var _object = asset_get_index(_objName);
     var _name = _listInstances[| i + 4];
-    
+
     if (_object != -1)
-    {    
+    {
         var _x = _listInstances[| i + 1];
         var _y = _listInstances[| i + 2];
         var _code = string_replace_all(_listInstances[| i + 3], " = ", "=");
@@ -360,7 +358,7 @@ for (var i = 0; i < ds_list_size(_listInstances); i += 10)
         var _blend = _listInstances[| i + 7];
         var _alpha = _listInstances[| i + 8];
         var _rotation = _listInstances[| i + 9];
-        
+
         var _id = PEd_instanceCreate(_room, _x, _y, _object);
         PEd_instanceSetPosX(_id, _x);
         PEd_instanceSetPosY(_id, _y);
@@ -371,8 +369,8 @@ for (var i = 0; i < ds_list_size(_listInstances); i += 10)
         PEd_instanceSetRotZ(_id, _rotation);
         PEd_instanceSetCode(_id, _code);
         PEd_instanceSetName(_id, _name);
-        
-        with (_id) 
+
+        with (_id)
         {
             PEd_codeProcess(_code);
         }
@@ -391,7 +389,7 @@ ds_list_destroy(_listViews);
 ds_list_destroy(_listTiles);
 
 // Redraw panel if in editor
-if (_isEditor) 
+if (_isEditor)
 {
     PEd_guiRequestRedrawAll(guiRoot)
     PEd_guiShowPopupMessage("Room imported!");

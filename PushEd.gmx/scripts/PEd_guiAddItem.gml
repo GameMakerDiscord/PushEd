@@ -1,10 +1,8 @@
 /// PEd_guiAddItem(compoundShape, item)
-/**
- * @brief Adds item to the compound shape while preserving depth order.
- * @param {real} compoundShape The id of the compound shape.
- * @param {real} item          The id of the item to be added.
- * @return {real} The index where the item has been placed at.
- */
+/// @brief Adds item to the compound shape while preserving depth order.
+/// @param {real} compoundShape The id of the compound shape.
+/// @param {real} item The id of the item to be added.
+/// @return {real} The index where the item has been placed at.
 var _items = PEd_guiCompoundShapeGetItems(argument0);
 var _index = ds_list_size(_items);
 while (_index > 0)

@@ -1,8 +1,6 @@
 /// PEd_getCustomData(instance)
-/**
- * @brief Gets custom data of the instance.
- * @param {real} instance The id of the instance.
- */
+/// @brief Gets custom data of the instance.
+/// @param {real} instance The id of the instance.
 with (PEd_oEditor)
 {
     if (!(object_is_ancestor(argument0.object_index, PEd_oObject2D)

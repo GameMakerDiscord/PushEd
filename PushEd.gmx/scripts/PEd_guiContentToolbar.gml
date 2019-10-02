@@ -1,9 +1,7 @@
 /// PEd_guiContentToolbar(container)
-/**
- * @brief Draws the content of a Toolbar to the container.
- * @param {real} container The id of the container.
- * @return {vec2} The content size.
- */
+/// @brief Draws the content of a Toolbar to the container.
+/// @param {real} container The id of the container.
+/// @return {vec2} The content size.
 var _items = PEd_guiCompoundShapeGetItems(argument0);
 var _padding = 1;
 var _x = _padding;

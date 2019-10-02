@@ -1,13 +1,11 @@
 /// PEd_guiDrawSpriteClickable(sprite, subimg, x, y, [colour])
-/**
- * @brief Draws a clickable sprite at the given position.
- * @param {real} sprite   The id of the sprite.
- * @param {real} subimg   The subimage of the sprite.
- * @param {real} x        The x position to draw the sprite at.
- * @param {real} y        The y position to draw the sprite at.
- * @param {real} [colour] The colour to blend the sprite with.
- * @return {bool} True if the sprite is clicked.
- */
+/// @brief Draws a clickable sprite at the given position.
+/// @param {real} sprite The id of the sprite.
+/// @param {real} subimg The subimage of the sprite.
+/// @param {real} x The x position to draw the sprite at.
+/// @param {real} y The y position to draw the sprite at.
+/// @param {real} [colour] The colour to blend the sprite with.
+/// @return {bool} True if the sprite is clicked.
 var _delegate = guiShapeFilling;
 var _sprite = argument[0];
 var _subimg = argument[1];

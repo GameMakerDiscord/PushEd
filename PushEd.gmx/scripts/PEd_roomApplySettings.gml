@@ -1,8 +1,6 @@
 /// PEd_roomApplySettings(room)
-/**
- * @brief Applies room settings to the current room.
- * @param {real} room The id of the room.
- */
+/// @brief Applies room settings to the current room.
+/// @param {real} room The id of the room.
 var _room = argument0;
 var _width = PEd_roomGetWidth(_room);
 var _height = PEd_roomGetHeight(_room);
@@ -38,7 +36,7 @@ for (var i = 0; i < 8; i++)
     background_foreground[i] = PEd_backgroundIsForeground(_background);
     background_index[i] = PEd_backgroundGetImage(_background);
     background_visible[i] = PEd_backgroundGetVisible(_background);
-    
+
     if (PEd_backgroundGetStretch(_background))
     {
         background_xscale[i] = _width / background_get_width(background_index[i]);

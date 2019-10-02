@@ -1,7 +1,5 @@
 /// PEd_start3D()
-/**
- * @brief Starts 3D mode.
- */
+/// @brief Starts 3D mode.
 viewLastX = view_xview[0];
 viewLastY = view_yview[0];
 global.pedUsing3D = true;

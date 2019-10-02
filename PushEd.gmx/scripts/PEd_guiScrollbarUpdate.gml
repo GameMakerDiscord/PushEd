@@ -1,8 +1,6 @@
 /// PEd_guiScrollbarUpdate(scrollbar)
-/**
- * @brief Updates the scrollbar.
- * @param {real} scrollbar The id of the scrollbar.
- */
+/// @brief Updates the scrollbar.
+/// @param {real} scrollbar The id of the scrollbar.
 var _scrollbar = argument0;
 PEd_guiShapeUpdate(_scrollbar);
 PEd_guiScrollbarCalcJumpAndThumbSize(_scrollbar);

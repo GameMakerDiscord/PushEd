@@ -1,10 +1,8 @@
 /// PEd_xmlFindAllElements(rootElement, name)
-/**
- * @brief Finds all elements with given name in the given tree of elements.
- * @param {real}   rootElement The root element of the tree.
- * @param {string} name        The name of elements to be found.
- * @return {real} A ds_list containing all found elements.
- */
+/// @brief Finds all elements with given name in the given tree of elements.
+/// @param {real} rootElement The root element of the tree.
+/// @param {string} name The name of elements to be found.
+/// @return {real} A ds_list containing all found elements.
 var _element = argument[0];
 var _name = argument[1];
 var _list = noone;

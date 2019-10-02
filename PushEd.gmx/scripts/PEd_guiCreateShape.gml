@@ -1,12 +1,10 @@
 /// PEd_guiCreateShape([type])
-/**
- * @brief Creates a new shape.
- * @param {PEdGUIShape} [type] The type of the shape.
- * @return {real} The id of the created shape.
- */
+/// @brief Creates a new shape.
+/// @param {PEdGUIShape} [type] The type of the shape.
+/// @return {real} The id of the created shape.
 var _shape = ds_map_create();
 if (argument_count == 1)
-{   
+{
     PEd_guiShapeSetType(_shape, argument[0]);
 }
 else

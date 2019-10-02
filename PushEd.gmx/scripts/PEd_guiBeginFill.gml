@@ -1,11 +1,9 @@
 /// PEd_guiBeginFill(canvas)
-/**
- * @brief Sets the canvas surface as the render target.
- * @param {real} canvas The id of the canvas.
- * @return {bool} True if the surface has been set as the render target.
- */
+/// @brief Sets the canvas surface as the render target.
+/// @param {real} canvas The id of the canvas.
+/// @return {bool} True if the surface has been set as the render target.
 var _canvas = argument0;
- 
+
 ////////////////////////////////////////////////////////////////////////////////
 // Check surface
 var _surface = PEd_guiCanvasGetSurface(_canvas);

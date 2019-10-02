@@ -1,11 +1,9 @@
 /// PEd_tileSetPosX(tile, val)
-/**
- * @brief Sets the x position of the tile.
- * @param {real} tile The id of the tile.
- * @param {real} val  The new x position of the tile.
- * @note If the tile is currently selected, all tiles in
- *       multiple selection are moved accordingly.
- */
+/// @brief Sets the x position of the tile.
+/// @param {real} tile The id of the tile.
+/// @param {real} val The new x position of the tile.
+/// @note If the tile is currently selected, all tiles in
+/// multiple selection are moved accordingly.
 with (PEd_oEditor)
 {
     var _tile = argument0;

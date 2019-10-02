@@ -1,12 +1,10 @@
 /// PEd_guiShowContextMenu(contextMenu, [x, y])
-/**
- * @brief Shows the context menu.
- * @param {real} contextMenu The id of the context menu to show.
- * @param {real} [x]         The x position to show the context menu at.
- * @param {real} [y]         The y position to show the context menu at.
- * @note If the position coordinates are not specified, then the current
- *       window mouse position is used.
- */
+/// @brief Shows the context menu.
+/// @param {real} contextMenu The id of the context menu to show.
+/// @param {real} [x] The x position to show the context menu at.
+/// @param {real} [y] The y position to show the context menu at.
+/// @note If the position coordinates are not specified, then the current
+/// window mouse position is used.
 if (guiContextMenu)
 {
     PEd_guiDestroyShape(guiContextMenu);

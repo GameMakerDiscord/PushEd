@@ -1,8 +1,6 @@
 /// PEd_guiPushMouseCoordinates(shape)
-/**
- * @brief Pushes mouse coordinates to be relative to the shape.
- * @param {real} shape The id of the shape.
- */
+/// @brief Pushes mouse coordinates to be relative to the shape.
+/// @param {real} shape The id of the shape.
 var _shape = argument0;
 var _x = PEd_guiShapeGetX(_shape);
 var _y = PEd_guiShapeGetY(_shape);

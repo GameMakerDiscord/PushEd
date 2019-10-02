@@ -1,10 +1,8 @@
 /// PEd_guiDrawPopupMessage(x, y, message)
-/**
- * @brief Draws a popup message at the given position.
- * @param {real} x         The x position to draw popup the message at.
- * @param {real} y         The y position to draw popup the message at.
- * @param {strnig} message The text of the popup message.
- */
+/// @brief Draws a popup message at the given position.
+/// @param {real} x The x position to draw popup the message at.
+/// @param {real} y The y position to draw popup the message at.
+/// @param {strnig} message The text of the popup message.
 var _message = argument2;
 var _w = string_width(_message) + 128;
 var _h = string_height(_message) + 32;

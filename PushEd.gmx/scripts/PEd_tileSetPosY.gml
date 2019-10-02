@@ -1,11 +1,9 @@
 /// PEd_tileSetPosY(tile, val)
-/**
- * @brief Sets the y position of the tile.
- * @param {real} tile The id of the tile.
- * @param {real} val  The new y position of the tile.
- * @note If the tile is currently selected, all tiles in
- *       multiple selection are moved accordingly.
- */
+/// @brief Sets the y position of the tile.
+/// @param {real} tile The id of the tile.
+/// @param {real} val The new y position of the tile.
+/// @note If the tile is currently selected, all tiles in
+/// multiple selection are moved accordingly.
 with (PEd_oEditor)
 {
     var _tile = argument0;

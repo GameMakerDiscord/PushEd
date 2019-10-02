@@ -1,8 +1,6 @@
 /// PEd_guiScrollbarVerUpdate(scrollbarVer)
-/**
- * @brief Updates the vertical scrollbar.
- * @param {real} scrollbarVer The id of the vertical scrollbar.
- */
+/// @brief Updates the vertical scrollbar.
+/// @param {real} scrollbarVer The id of the vertical scrollbar.
 var _scrollbar = argument0;
 
 _scrollbar[? "size"] = PEd_guiShapeGetHeight(_scrollbar);
@@ -21,7 +19,7 @@ if (guiShapeHovered == _scrollbar
     && mouse_check_button_pressed(mb_left))
 {
     var _y = _scrollbar[? "scroll"];
-    
+
     if (guiShapeHovered == _scrollbar
         && guiMouseY > _y
         && guiMouseY < _y + _scrollbar[? "thumbSize"])
@@ -41,7 +39,7 @@ if (mouse_check_button_released(mb_left)
 
 // Handle scrolling
 if (PEd_guiScrollbarIsVisible(_scrollbar))
-{   
+{
     var _scroll = _scrollbar[? "scroll"];
     if (guiShapeActive == _scrollbar)
     {

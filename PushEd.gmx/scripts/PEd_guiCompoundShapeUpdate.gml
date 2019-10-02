@@ -1,8 +1,6 @@
 /// PEd_guiCompoundShapeUpdate(compoundShape)
-/**
- * @brief Updates the compound shape.
- * @param {real} compoundShape The id of the compound shape.
- */
+/// @brief Updates the compound shape.
+/// @param {real} compoundShape The id of the compound shape.
 PEd_guiShapeUpdate(argument0);
 
 ////////////////////////////////////////////////////////////////////////////////

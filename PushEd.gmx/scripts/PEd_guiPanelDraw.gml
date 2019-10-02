@@ -1,8 +1,6 @@
 /// PEd_guiPanelDraw(panel)
-/**
- * @brief Draws the panel.
- * @param {real} panel The id of the panel.
- */
+/// @brief Draws the panel.
+/// @param {real} panel The id of the panel.
 var _panel = argument0;
 var _panelW = PEd_guiShapeGetWidth(_panel);
 var _panelH = PEd_guiShapeGetHeight(_panel);

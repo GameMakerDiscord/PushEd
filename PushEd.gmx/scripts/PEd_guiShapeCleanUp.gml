@@ -1,8 +1,6 @@
 /// PEd_guiShapeCleanUp(shape)
-/**
- * @brief Frees resources used by the shape from memory.
- * @param {real} shape The id of the shape.
- */
+/// @brief Frees resources used by the shape from memory.
+/// @param {real} shape The id of the shape.
 var _shape = argument0;
 if (PEd_guiShapeExists(_shape))
 {
@@ -17,7 +15,7 @@ if (PEd_guiShapeExists(_shape))
             ds_list_delete(_items, _pos);
         }
     }
-    
+
     // Destroy self
     ds_map_destroy(_shape);
 }

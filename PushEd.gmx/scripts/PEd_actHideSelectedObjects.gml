@@ -1,7 +1,5 @@
 /// PEd_actHideSelectedObjects()
-/**
- * @brief Hides selected objects and clears selection.
- */
+/// @brief Hides selected objects and clears selection.
 switch (editMode)
 {
     case PEdEditModes.Object:
@@ -10,7 +8,7 @@ switch (editMode)
             selectedObjects[| i].visible = false;
         }
         break;
-        
+
     case PEdEditModes.Tile:
         for (var i = ds_list_size(selectedObjects) - 1; i >= 0; i--)
         {

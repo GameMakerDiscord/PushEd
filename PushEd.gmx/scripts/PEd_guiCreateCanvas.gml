@@ -1,9 +1,7 @@
 /// PEd_guiCreateCanvas([type])
-/**
- * @brief Creates a new canvas.
- * @param {PEdGUIShape} type The canvas type.
- * @return {real} The id of the createed canvas.
- */
+/// @brief Creates a new canvas.
+/// @param {PEdGUIShape} type The canvas type.
+/// @return {real} The id of the createed canvas.
 var _canvas;
 if (argument_count == 1)
 {

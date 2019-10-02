@@ -1,8 +1,6 @@
 /// PEd_guiMenuFile(contextMenu)
-/**
- * @brief Adds options for the "File" menu to the context menu.
- * @param {real} contextMenu The id of the context menu.
- */
+/// @brief Adds options for the "File" menu to the context menu.
+/// @param {real} contextMenu The id of the context menu.
 var _contextMenu = argument0;
 PEd_guiAddItem(_contextMenu,
     PEd_guiCreateContextMenuItem("New", PEd_actCreateEmptyRoom, ksNewRoom));

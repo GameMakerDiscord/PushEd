@@ -1,7 +1,5 @@
 /// PEd_meshInit()
-/**
- * @brief Initializes mesh functionality.
- */
+/// @brief Initializes mesh functionality.
 // Create default vertex buffer format
 vertex_format_begin();
 vertex_format_add_position_3d();

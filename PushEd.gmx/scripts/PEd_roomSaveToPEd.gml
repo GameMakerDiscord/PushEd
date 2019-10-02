@@ -1,10 +1,8 @@
 /// PEd_roomSaveToPEd(room, file)
-/**
- * @brief Saves the room into the *.ped file.
- * @param {real}   room The id of the room.
- * @param {string} file The name of the file to export to.
- * @return {bool} True on success.
- */
+/// @brief Saves the room into the *.ped file.
+/// @param {real} room The id of the room.
+/// @param {string} file The name of the file to export to.
+/// @return {bool} True on success.
 var _room = argument0;
 var _path = argument1;
 var _roomName = string_replace(filename_name(_path), ".ped", "");

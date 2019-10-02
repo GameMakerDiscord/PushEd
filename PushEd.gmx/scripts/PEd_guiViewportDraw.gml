@@ -1,8 +1,6 @@
 /// PEd_guiViewportDraw(viewport)
-/**
- * @brief Draws the viewport.
- * @param {real} viewport The id of the viewport.
- */
+/// @brief Draws the viewport.
+/// @param {real} viewport The id of the viewport.
 var _viewport = argument0;
 var _viewportX = PEd_guiShapeGetX(_viewport);
 var _viewportY = PEd_guiShapeGetY(_viewport);
@@ -47,15 +45,15 @@ viewportHeight = max(_viewportH, 1);
 //
 // Draw viewport
 //
-if (global.pedUsing3D) 
+if (global.pedUsing3D)
 {
     draw_surface(application_surface, _viewportX, _viewportY);
 }
-else 
+else
 {
-    draw_surface_part(application_surface, 0, 0, 
-                      min(_viewportW, surface_get_width(application_surface)), 
-                      min(_viewportH, surface_get_height(application_surface)), 
+    draw_surface_part(application_surface, 0, 0,
+                      min(_viewportW, surface_get_width(application_surface)),
+                      min(_viewportH, surface_get_height(application_surface)),
                       _viewportX, _viewportY);
 }
 
@@ -65,7 +63,7 @@ else
 //
 var _size = ds_list_size(selectedObjects);
 if (_size > 0
-    && surface_exists(surInstSelect)) 
+    && surface_exists(surInstSelect))
 {
     shader_set(PEd_shOutline);
     shader_set_uniform_f(shader_get_uniform(PEd_shOutline, "uTexel"),
@@ -82,8 +80,8 @@ if (debugShow)
 {
     var _x = _viewportX;
     var _y = _viewportY;
-    
-    if (global.pedUsing3D) 
+
+    if (global.pedUsing3D)
     {
         PEd_guiDrawTextShadow(_x, _y,
                            "Res = " + string(viewportWidth) + " x " + string(viewportHeight)
@@ -95,7 +93,7 @@ if (debugShow)
                            c_black);
         _y += guiFontHeight * 3;
     }
-    else 
+    else
     {
         PEd_guiDrawTextShadow(_x, _y,
                            "Res = " + string(viewportWidth) + " x " + string(viewportHeight)
@@ -105,14 +103,14 @@ if (debugShow)
                            c_black);
         _y += guiFontHeight * 3;
     }
-    
+
     // FPS
     PEd_guiDrawTextShadow(_x, _y,
                        "Fps = " + string(fps) + " (" + string(fps_real) + ")",
                        merge_colour(c_maroon, c_green, fps / room_speed),
                        c_black);
     _y += guiFontHeight;
-    
+
     // Scene details
     PEd_guiDrawTextShadow(_x, _y,
                        "Inst = " + string(instance_count),

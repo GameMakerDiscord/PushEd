@@ -1,10 +1,8 @@
 /// PEd_instanceCopy(id)
-/**
- * @brief Creates a copy of the instance.
- * @param {real} id The id of the instance to make a copy of.
- * @return {real} The id of the created copy.
- */
-with (argument0) 
+/// @brief Creates a copy of the instance.
+/// @param {real} id The id of the instance to make a copy of.
+/// @return {real} The id of the created copy.
+with (argument0)
 {
     var _i = instance_copy(false);
     PEd_instanceSetPosX(_i, PEd_oPivot.x);

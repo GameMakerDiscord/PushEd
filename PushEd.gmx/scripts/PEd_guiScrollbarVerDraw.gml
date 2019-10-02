@@ -1,8 +1,6 @@
 /// PEd_guiScrollbarVerDraw(scrollbarVer)
-/**
- * @brief Draws the vertical scrollbar.
- * @param {real} scrollbarVer The id of the vertical scrollbar.
- */
+/// @brief Draws the vertical scrollbar.
+/// @param {real} scrollbarVer The id of the vertical scrollbar.
 if (PEd_guiScrollbarIsVisible(argument0))
 {
     // Thumb

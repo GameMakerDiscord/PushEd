@@ -1,8 +1,6 @@
 /// PEd_guiRequestRedrawAll(shape)
-/**
- * @brief Requests redraw of all child shapes.
- * @param {real} shape The id of the shape.
- */
+/// @brief Requests redraw of all child shapes.
+/// @param {real} shape The id of the shape.
 PEd_guiShapeSetRedraw(argument0, true);
 var _items = PEd_guiCompoundShapeGetItems(argument0);
 if (!is_undefined(_items))

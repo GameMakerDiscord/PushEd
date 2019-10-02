@@ -1,9 +1,7 @@
 /// PEd_guiCreateScrollbarVer(delegate)
-/**
- * @brief Creates a new horizontal scrollbar.
- * @param {real} delegate The id of the scrollbars delegate.
- * @return {real} The id of the created scrollbar.
- */
+/// @brief Creates a new horizontal scrollbar.
+/// @param {real} delegate The id of the scrollbars delegate.
+/// @return {real} The id of the created scrollbar.
 var _scrollbarVer = PEd_guiCreateScrollbar(argument0);
 var _sprite = PEd_guiSprScrollbarVer;
 _scrollbarVer[? "sprite"] = _sprite;

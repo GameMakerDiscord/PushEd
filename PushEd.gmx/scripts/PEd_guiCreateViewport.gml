@@ -1,8 +1,6 @@
 /// PEd_guiCreateViewport()
-/**
- * @brief Creates a new viewport.
- * @return {real} The id of the created viewport.
- */
+/// @brief Creates a new viewport.
+/// @return {real} The id of the created viewport.
 var _viewport = PEd_guiCreateCompoundShape(PEdGUIShape.Viewport);
 _viewport[? "scrUpdate"] = PEd_guiViewportUpdate;
 _viewport[? "scrDraw"] = PEd_guiViewportDraw;

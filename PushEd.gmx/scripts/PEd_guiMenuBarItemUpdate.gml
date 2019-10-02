@@ -1,8 +1,6 @@
 /// PEd_guiMenuBarItemUpdate(menuBarItem)
-/**
- * @brief Updates the menu bar item.
- * @param {real} menuBarItem The id of the menu bar item.
- */
+/// @brief Updates the menu bar item.
+/// @param {real} menuBarItem The id of the menu bar item.
 var _item = argument0;
 PEd_guiShapeUpdate(_item);
 
@@ -13,7 +11,7 @@ if (_scrContextMenu != noone
 {
     var _delegate = PEd_guiShapeGetDelegate(_item);
     var _current = _delegate[? "current"];
-    
+
     if (mouse_check_button_pressed(mb_left))
     {
         if (_current == noone)
@@ -28,7 +26,7 @@ if (_scrContextMenu != noone
             PEd_guiDestroyShape(guiContextMenu);
         }
     }
-    
+
     // Open the context menu for this item
     if (_delegate[? "current"] != noone)
     {

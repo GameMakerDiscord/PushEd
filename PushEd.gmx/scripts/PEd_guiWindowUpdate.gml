@@ -1,8 +1,6 @@
 /// PEd_guiWindowUpdate(window)
-/**
- * @brief Updates the window.
- * @param {real} window The id of the window.
- */
+/// @brief Updates the window.
+/// @param {real} window The id of the window.
 var _window = argument0;
 var _width = PEd_guiShapeGetWidth(_window);
 var _height = PEd_guiShapeGetHeight(_window);
@@ -17,7 +15,7 @@ if (mouse_check_button_pressed(mb_any)
     || PEd_guiShapeDelegatesRecursive(_window, guiShapeHovered)))
 {
     PEd_guiMoveItemToTop(_window);
-    
+
     ////////////////////////////////////////////////////////////////////////////
     // FIXME Stupid hack :(
     guiShapeSelected = _window;
@@ -54,7 +52,7 @@ else if ((PEd_guiShapeIsHovered(_window)
     {
         _resize |= PEdGUIResize.Right;
     }
-    
+
     if (guiMouseY < _border)
     {
         _resize |= PEdGUIResize.Top;
@@ -63,7 +61,7 @@ else if ((PEd_guiShapeIsHovered(_window)
     {
         _resize |= PEdGUIResize.Bottom;
     }
-    
+
     if (mouse_check_button_pressed(mb_left))
     {
         if (_resize & PEdGUIResize.Left)
@@ -74,7 +72,7 @@ else if ((PEd_guiShapeIsHovered(_window)
         {
             _window[? "mouseOffsetX"] = PEd_guiShapeGetX(_window) + PEd_guiShapeGetWidth(_window) - windowMouseX;
         }
-        
+
         if (_resize & PEdGUIResize.Top)
         {
             _window[? "mouseOffsetY"] = windowMouseY - PEd_guiShapeGetY(_window);
@@ -83,7 +81,7 @@ else if ((PEd_guiShapeIsHovered(_window)
         {
             _window[? "mouseOffsetY"] = PEd_guiShapeGetY(_window) + PEd_guiShapeGetHeight(_window) - windowMouseY;
         }
-    
+
         _window[? "resize"] = _resize;
         guiShapeActive = _window;
     }
@@ -107,7 +105,7 @@ if (_resize != PEdGUIResize.None)
 {
     ////////////////////////////////////////////////////////////////////////////
     // Resizing
-    
+
     // Set cursor
     if ((_resize & PEdGUIResize.Left
         && _resize & PEdGUIResize.Top)
@@ -131,7 +129,7 @@ if (_resize != PEdGUIResize.None)
     {
         guiCursor = cr_size_ns;
     }
-    
+
     // Set size
     if (guiShapeActive == _window)
     {
@@ -147,12 +145,12 @@ if (_resize != PEdGUIResize.None)
             PEd_guiShapeSetWidth(_window, _widthNew);
             PEd_guiShapeSetX(_window, PEd_guiShapeGetX(_window) - (_widthNew - _widthOld));
         }
-        
+
         var _minHeight = PEd_guiShapeGetHeight(_titleBar) + _border * 2;
         if (_resize & PEdGUIResize.Bottom)
         {
             PEd_guiShapeSetHeight(_window, max(guiMouseY + _window[? "mouseOffsetY"], _minHeight));
-        }  
+        }
         else if (_resize & PEdGUIResize.Top)
         {
             var _heightOld = PEd_guiShapeGetHeight(_window);
@@ -160,7 +158,7 @@ if (_resize != PEdGUIResize.None)
             PEd_guiShapeSetHeight(_window, _heightNew);
             PEd_guiShapeSetY(_window, PEd_guiShapeGetY(_window) - (_heightNew - _heightOld));
         }
-         
+
         if (!mouse_check_button(mb_left))
         {
             _window[? "resize"] = PEdGUIResize.None;

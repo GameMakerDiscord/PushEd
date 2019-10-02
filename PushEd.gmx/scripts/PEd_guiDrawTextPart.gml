@@ -1,15 +1,13 @@
 /// PEd_guiDrawTextPart(x, y, text, maxWidth[, colour])
-/**
- * @brief Draws part of the text at the given position.
- * @param {real}   x        The x position to draw the text at.
- * @param {real}   y        The y position to draw the text at.
- * @param {string} text     The text to draw.
- * @param {real}   maxWidth The maximum width of the text in pixels. If the text
- *                          is longer than this, then it is clipped and
- *                          followed by "...".
- * @param {real}   [colour] The colour of the text. If not provided,
- *                          `PEdColour.Text` is used.
- */
+/// @brief Draws part of the text at the given position.
+/// @param {real} x        The x position to draw the text at.
+/// @param {real} y        The y position to draw the text at.
+/// @param {string} text The text to draw.
+/// @param {real} maxWidth The maximum width of the text in pixels. If the text
+/// is longer than this, then it is clipped and
+/// followed by "...".
+/// @param {real} [colour] The colour of the text. If not provided,
+/// `PEdColour.Text` is used.
 var _colour;
 if (argument_count > 4)
 {

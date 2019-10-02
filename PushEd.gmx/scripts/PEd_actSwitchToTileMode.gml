@@ -1,10 +1,8 @@
 /// PEd_actSwitchToTileMode()
-/**
- * @brief Switches to tile edit mode.
- */
-if (!global.pedUsing3D) 
+/// @brief Switches to tile edit mode.
+if (!global.pedUsing3D)
 {
-    if (editMode != PEdEditModes.Tile) 
+    if (editMode != PEdEditModes.Tile)
     {
         editMode = PEdEditModes.Tile;
         PEd_actClearSelection();
@@ -12,7 +10,7 @@ if (!global.pedUsing3D)
         PEd_guiShowPopupMessage("Tile editing mode.");
     }
 }
-else 
+else
 {
     PEd_guiShowPopupMessage("Cannot change editing mode in 3D.");
 }

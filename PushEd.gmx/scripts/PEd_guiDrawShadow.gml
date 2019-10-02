@@ -1,13 +1,11 @@
 /// PEd_guiDrawShadow(x, y, width, height, colour, alpha)
-/**
- * @brief Draws shadow of given size at given position.
- * @param {real} x      The x position of the shadow.
- * @param {real} y      The y position of the shadow.
- * @param {real} width  The width of the shadow.
- * @param {real} height The height of the shadow.
- * @param {real} colour The shadow colour.
- * @param {real} alpha  The shadow alpha.
- */
+/// @brief Draws shadow of given size at given position.
+/// @param {real} x The x position of the shadow.
+/// @param {real} y The y position of the shadow.
+/// @param {real} width The width of the shadow.
+/// @param {real} height The height of the shadow.
+/// @param {real} colour The shadow colour.
+/// @param {real} alpha The shadow alpha.
 var _spr = PEd_guiSprShadow;
 var _sprW = sprite_get_width(_spr);
 var _offset = _sprW * 0.5;

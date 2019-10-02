@@ -1,9 +1,7 @@
 /// PEd_roomCopy(room)
-/**
- * @brief Creates a copy of the room
- * @param {real} room The id of the room.
- * @return {real} The copy of the room.
- */
+/// @brief Creates a copy of the room
+/// @param {real} room The id of the room.
+/// @return {real} The copy of the room.
 var _room = argument0;
 var _copy = ds_map_create();
 
@@ -37,7 +35,7 @@ for (var i = 0; i < 8; i++)
     var _background = ds_map_create();
     ds_map_copy(_background, PEd_roomGetBackground(_room, i));
     PEd_dsListAddMap(_backgrounds, _background);
-    
+
     var _viewport = ds_map_create();
     ds_map_copy(_viewport, PEd_roomGetViewport(_room, i));
     PEd_dsListAddMap(_viewports, _viewport);

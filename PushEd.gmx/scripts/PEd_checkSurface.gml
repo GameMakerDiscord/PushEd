@@ -1,12 +1,10 @@
 /// PEd_checkSurface(surface, width, height)
-/**
- * @brief Checks whether the surface exists and if it has correct size.
- *        Broken surfaces are recreated. Surfaces of wrong size are resized.
- * @param {real} surface The id of the surface.
- * @param {real} width   The desired width of the surface.
- * @param {real} height  The desired height of the surface.
- * @return {real} The surface id.
- */
+/// @brief Checks whether the surface exists and if it has correct size.
+/// Broken surfaces are recreated. Surfaces of wrong size are resized.
+/// @param {real} surface The id of the surface.
+/// @param {real} width The desired width of the surface.
+/// @param {real} height The desired height of the surface.
+/// @return {real} The surface id.
 var _surface = argument0;
 var _width = max(argument1, 1);
 var _height = max(argument2, 1);

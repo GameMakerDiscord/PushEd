@@ -1,8 +1,6 @@
 /// PEd_guiContextMenuItemDraw(contextMenuItem)
-/**
- * @brief Dras the context menu item.
- * @param {real} contextMenuItem The id of the context menu item.
- */
+/// @brief Dras the context menu item.
+/// @param {real} contextMenuItem The id of the context menu item.
 var _item = argument0;
 var _x = PEd_guiShapeGetX(_item);
 var _y = PEd_guiShapeGetY(_item);
@@ -17,7 +15,7 @@ var _delegateWidth = PEd_guiShapeGetWidth(_delegate);
 var _shortcut = _item[? "shortcut"];
 var _shortcutWidth = 0;
 
-// Draw highlight  
+// Draw highlight
 if (_scrAction != noone)
 {
     _textColour = PEdColour.Text;

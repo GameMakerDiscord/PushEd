@@ -1,8 +1,6 @@
 /// PEd_guiDockUpdate(dock)
-/**
- * @brief Updates the dock.
- * @param {real} dock The id of the dock.
- */
+/// @brief Updates the dock.
+/// @param {real} dock The id of the dock.
 var _dock = argument0;
 PEd_guiCompoundShapeUpdate(_dock);
 
@@ -18,11 +16,11 @@ if (!PEd_guiShapeExists(guiShapeActive)
     var _splitSize = _dock[? "splitSize"];
     var _padding = _dock[? "padding"];
     var _middle;
-    
+
     if (_splitType == PEdGUISplit.Horizontal)
     {
         _middle = round(_width * _splitSize);
-        
+
         // Horizontally
         if (guiMouseX >= _middle - _padding
             && guiMouseX < _middle + _padding)
@@ -38,7 +36,7 @@ if (!PEd_guiShapeExists(guiShapeActive)
     else
     {
         _middle = round(_height * _splitSize);
-        
+
         // Vertically
         if (guiMouseY >= _middle - _padding
             && guiMouseY < _middle + _padding)

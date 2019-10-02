@@ -1,8 +1,6 @@
 /// PEd_guiCanvasDraw(canvas)
-/**
- * @brief Draws the canvas.
- * @param {canvas} The id of the canvas.
- */
+/// @brief Draws the canvas.
+/// @param {canvas} The id of the canvas.
 var _surface = PEd_guiCanvasGetSurface(argument0);
 if (surface_exists(_surface))
 {

@@ -1,9 +1,7 @@
 /// PEd_guiAddKeyboardShortcut(shape, keyboardShortcut)
-/**
- * @brief Adds keyboard shortcut to the shape.
- * @pram {real} shape             The id of the shape to add the keyboard shortcut to.
- * @param {real} keyboardShortcut The id of the keyboard shortcut.
- */
+/// @brief Adds keyboard shortcut to the shape.
+/// @pram {real} shape The id of the shape to add the keyboard shortcut to.
+/// @param {real} keyboardShortcut The id of the keyboard shortcut.
 var _shape = argument0;
 if (is_undefined(_shape[? "keyboardShortcuts"]))
 {

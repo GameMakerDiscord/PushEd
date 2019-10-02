@@ -1,9 +1,7 @@
 /// PEd_guiContentTitleBar(container)
-/**
- * @brief Draws the content of a Title Bar to the container.
- * @param {real} container The id of the container.
- * @return {vec2} The content size.
- */
+/// @brief Draws the content of a Title Bar to the container.
+/// @param {real} container The id of the container.
+/// @return {vec2} The content size.
 var _container = argument0;
 var _containerWidth = PEd_guiShapeGetWidth(_container);
 var _delegate = PEd_guiShapeGetDelegate(_container);

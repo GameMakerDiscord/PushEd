@@ -1,10 +1,8 @@
 /// PEd_xmlParse(string)
-/**
- * @brief Parses value from the string.
- * @param {string} string The string to parse.
- * @return {real/string} A real value or a string, where XML character entities are
- *                       replaced with their original form.
- */
+/// @brief Parses value from the string.
+/// @param {string} string The string to parse.
+/// @return {real/string} A real value or a string, where XML character entities are
+/// replaced with their original form.
 var _string = argument0;
 
 //
@@ -37,7 +35,7 @@ var _char = "";
 for (var i = 1; i <= _stringLength; i++)
 {
     _char = string_char_at(_string, i);
-    
+
     if (_char == string_digits(_char))
     {
         _a[_j] += _char;

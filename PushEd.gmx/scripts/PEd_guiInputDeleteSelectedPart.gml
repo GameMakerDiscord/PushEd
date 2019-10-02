@@ -1,7 +1,5 @@
 /// PEd_guiInputDeleteSelectedPart()
-/**
- * @brief Deletes selected part of input text.
- */
+/// @brief Deletes selected part of input text.
 var _minIndex = min(guiInputIndex[0], guiInputIndex[1]);
 guiInputString = string_delete(guiInputString,
                                _minIndex,

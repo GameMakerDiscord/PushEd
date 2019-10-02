@@ -1,12 +1,10 @@
 /// PEd_xmlFindElement(rootElement, name)
-/**
- * @brief Finds the first element with given name
- *        in the given tree of elements.
- * @param {real}   rootElement The root element of the tree.
- * @param {string} name        The name of the element to be found.
- * @return {real} The id of the found element or noone,
- *                if no such element has been found.
- */
+/// @brief Finds the first element with given name
+/// in the given tree of elements.
+/// @param {real} rootElement The root element of the tree.
+/// @param {string} name The name of the element to be found.
+/// @return {real} The id of the found element or noone,
+/// if no such element has been found.
 var _element = argument0;
 var _name = argument1;
 

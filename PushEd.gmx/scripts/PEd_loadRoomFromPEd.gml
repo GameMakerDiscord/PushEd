@@ -1,20 +1,18 @@
 /// PEd_loadRoomFromPEd(file)
-/**
- * @brief Loads a room from the external *.ped file.
- * @param {string} file The name of the file to load from.
- * @return {real} The id of the room or noone on fail.
- */
+/// @brief Loads a room from the external *.ped file.
+/// @param {string} file The name of the file to load from.
+/// @return {real} The id of the room or noone on fail.
 var _path = argument0;
- 
+
 ////////////////////////////////////////////////////////////////////////////////
 //
 // Read source
 //
 var _source = "";
 var _file = file_text_open_read(_path);
-if (_file != -1) 
+if (_file != -1)
 {
-    do 
+    do
     {
         _source += file_text_read_string(_file);
         file_text_readln(_file);
@@ -22,7 +20,7 @@ if (_file != -1)
     until (file_text_eof(_file));
     file_text_close(_file);
 }
-else 
+else
 {
     return noone;
 }
@@ -77,7 +75,7 @@ var _numberOfInstances = ds_list_size(_instances);
 
 for (var i = 0; i < _numberOfInstances; _numberOfInstances--)
 {
-    var _inst = _instances[| i];    
+    var _inst = _instances[| i];
     var _id = PEd_instanceCreate(_room,
                                  _inst[? "x"],
                                  _inst[? "y"],
@@ -90,17 +88,17 @@ for (var i = 0; i < _numberOfInstances; _numberOfInstances--)
     PEd_instanceSetRotZ(_id, _inst[? "rotation"]);
     PEd_instanceSetColour(_id, _inst[? "colour"]);
     PEd_instanceSetAlpha(_id, _inst[? "alpha"]);
-    
+
     if (!is_undefined(_inst[? "visible"]))
     {
         _id.visible = _inst[? "visible"];
     }
-    
-    with (_id) 
+
+    with (_id)
     {
         PEd_codeProcess(_code);
     }
-    
+
     ds_list_delete(_instances, i);
 }
 
@@ -111,7 +109,7 @@ var _numberOfTiles = ds_list_size(_tiles);
 
 for (var i = 0; i < _numberOfTiles; _numberOfTiles--)
 {
-    var _t = _tiles[| i]; 
+    var _t = _tiles[| i];
     var _id = PEd_createTile(_room,
                         asset_get_index(_t[? "background"]),
                        _t[? "left"],
@@ -126,12 +124,12 @@ for (var i = 0; i < _numberOfTiles; _numberOfTiles--)
                    _t[? "scaleY"]);
     tile_set_blend(_id, _t[? "colour"]);
     tile_set_alpha(_id, _t[? "alpha"]);
-    
+
     if (!is_undefined(_t[? "visible"]))
     {
         tile_set_visible(_id, _t[? "visible"]);
     }
-    
+
     ds_list_delete(_tiles, i);
 }
 

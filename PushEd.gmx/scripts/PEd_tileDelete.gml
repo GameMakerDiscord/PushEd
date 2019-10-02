@@ -1,8 +1,6 @@
 /// PEd_tileDelete(tile)
-/**
- * @brief Delets the tile and removes it from the room that it is in.
- * @param {real} tile The id of the tile.
- */
+/// @brief Delets the tile and removes it from the room that it is in.
+/// @param {real} tile The id of the tile.
 for (var i = ds_list_size(pedRoomList) - 1; i >= 0; i--)
 {
     var _tiles = PEd_roomGetTiles(pedRoomList[| i]);

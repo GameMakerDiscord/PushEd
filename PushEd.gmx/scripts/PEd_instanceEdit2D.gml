@@ -1,7 +1,5 @@
 /// PEd_instanceEdit2D()
-/**
- * @brief Handles 2D instance editing.
- */
+/// @brief Handles 2D instance editing.
 // Save old transformations
 var _oldRotZ = 0;
 var _oldScaleX = 0;
@@ -9,9 +7,9 @@ var _oldScaleY = 0;
 var _room = PEd_getCurrentRoom();
 var _selectedObj = PEd_getSelectedObject();
 
-if (_selectedObj > 0) 
+if (_selectedObj > 0)
 {
-    if (editMode == PEdEditModes.Object) 
+    if (editMode == PEdEditModes.Object)
     {
         if (instance_exists(_selectedObj))
         {
@@ -44,18 +42,18 @@ if (_selectedObj > 0)
 var _tileAddScaleX = 0;
 var _tileAddScaleY = 0;
 
-if (mouseInViewport) 
+if (mouseInViewport)
 {
     ////////////////////////////////////////////////////////////////////////////
     //
     // Control pivot
     //
     if (mouse_check_button(mb_left)
-        && editAxis != PEdAxes.None) 
+        && editAxis != PEdAxes.None)
     {
         var _valX = (windowMouseX - viewportX + mouseOff[0]) * viewZoom + view_xview[0];
         var _valY = (windowMouseY - viewportY + mouseOff[1]) * viewZoom + view_yview[0];
-        
+
         if (editAxis == PEdAxes.All
             && editNow == 1
             && editMode == PEdEditModes.Object)
@@ -67,23 +65,23 @@ if (mouseInViewport)
         {
             if (editAxis & PEdAxes.X)
             {
-                if (editNow == PEdTools.Move) 
+                if (editNow == PEdTools.Move)
                 {
                     // Move
                     PEd_oPivot.x = _valX;
                 }
                 else if (editNow == PEdTools.Scale
-                    && _selectedObj > 0) 
+                    && _selectedObj > 0)
                 {
                     // Scale
                     var _scale = (windowMouseX - mouseLastX) * viewZoom / 10
                                + (windowMouseY - mouseLastY) * viewZoom / 10;
-                    
-                    if (editMode == PEdEditModes.Object) 
+
+                    if (editMode == PEdEditModes.Object)
                     {
                         PEd_instanceAddScaleX(_selectedObj, _scale);
                     }
-                    else if (editMode == PEdEditModes.Tile) 
+                    else if (editMode == PEdEditModes.Tile)
                     {
                         _tileAddScaleX = _scale;
                         tile_set_scale(_selectedObj,
@@ -92,22 +90,22 @@ if (mouseInViewport)
                     }
                 }
             }
-            
+
             if (editAxis & PEdAxes.Y)
             {
-                if (editNow == PEdTools.Move) 
+                if (editNow == PEdTools.Move)
                 {
                     // Move
                     PEd_oPivot.y = _valY;
                 }
                 else if (editNow == PEdTools.Scale
-                    && _selectedObj > 0) 
+                    && _selectedObj > 0)
                 {
                     // Scale
                     var _scale = (windowMouseX - mouseLastX) * viewZoom / 10
                                + (windowMouseY - mouseLastY) * viewZoom / 10;
-                    
-                    if (editMode == PEdEditModes.Object) 
+
+                    if (editMode == PEdEditModes.Object)
                     {
                         PEd_instanceAddScaleY(_selectedObj, _scale);
                     }
@@ -121,10 +119,10 @@ if (mouseInViewport)
                 }
             }
         }
-            
+
         // Snap to grid
         if (PEd_roomGetGrid(_room)
-            && !keyboard_check(vk_alt)) 
+            && !keyboard_check(vk_alt))
         {
             PEd_oPivot.x = round(PEd_oPivot.x / PEd_roomGetSnapH(_room)) * PEd_roomGetSnapH(_room);
             PEd_oPivot.y = round(PEd_oPivot.y / PEd_roomGetSnapV(_room)) * PEd_roomGetSnapV(_room);
@@ -136,10 +134,10 @@ if (mouseInViewport)
 //
 // Apply transformations
 //
-if (_selectedObj > 0) 
+if (_selectedObj > 0)
 {
     var _data = selectedObjectsData[| 0];
-    if (editMode == PEdEditModes.Object) 
+    if (editMode == PEdEditModes.Object)
     {
         PEd_instanceSetPosX(_selectedObj, PEd_oPivot.x + _data[0]);
         PEd_instanceSetPosY(_selectedObj, PEd_oPivot.y + _data[1]);
@@ -152,11 +150,11 @@ if (_selectedObj > 0)
 }
 
 var _size = ds_list_size(selectedObjects);
-for (var i = 1; i < _size; i++) 
+for (var i = 1; i < _size; i++)
 {
     var _id = selectedObjects[| i];
     var _data = selectedObjectsData[| i];
-    if (editMode == PEdEditModes.Object) 
+    if (editMode == PEdEditModes.Object)
     {
         PEd_instanceSetPosX(_id, PEd_oPivot.x + _data[0]);
         PEd_instanceSetPosY(_id, PEd_oPivot.y + _data[1]);
@@ -172,12 +170,12 @@ for (var i = 1; i < _size; i++)
                        tile_get_yscale(_id) + _tileAddScaleY);
     }
 }
-    
+
 ////////////////////////////////////////////////////////////////////////////////
 //
 // Stop editing
 //
-if (mouse_check_button_released(mb_left)) 
+if (mouse_check_button_released(mb_left))
 {
     editAxis = PEdAxes.None;
     editNow = PEdTools.None;

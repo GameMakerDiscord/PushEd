@@ -1,7 +1,5 @@
 /// PEd_instanceSelecting()
-/**
- * @brief Handles instance selecting.
- */
+/// @brief Handles instance selecting.
 if (!mouseInViewport
     || (editMode == PEdEditModes.Tile
         && keyboard_check(vk_control)))
@@ -18,13 +16,13 @@ if (mouse_check_button_pressed(mb_left)
     && windowMouseY == guiMousePressY))
 {
     var _surColSelect = surface_create(viewportWidth, viewportHeight);
-    
+
     // Draw to the surface
     surface_set_target(_surColSelect);
     draw_clear(c_black);
     PEd_cameraSetProjection();
     shader_set(PEd_shInstSelect);
-    
+
     // Draw objects
     if (editMode == PEdEditModes.Object)
     {
@@ -43,7 +41,7 @@ if (mouse_check_button_pressed(mb_left)
                     if ((sprite_index != -1
                         && !global.pedUsing3D)
                         || object_is_ancestor(object_index, PEd_oObject2D)
-                        || object_index == PEd_oObject2D) 
+                        || object_index == PEd_oObject2D)
                     {
                         draw_self();
                     }
@@ -52,7 +50,7 @@ if (mouse_check_button_pressed(mb_left)
             }
         }
     }
-    
+
     // Draw pivot
     with (PEd_oPivot)
     {
@@ -63,10 +61,10 @@ if (mouse_check_button_pressed(mb_left)
                              colour_get_blue(_color) / 255);
         event_perform(ev_draw, 0);
     }
-    
+
     shader_reset();
     surface_reset_target();
-    
+
     // Colour at mouse coordinate
     var _colSelect = surface_getpixel(_surColSelect, windowMouseX - viewportX, windowMouseY - viewportY);
     var _id = (_colSelect + 100000) * (_colSelect > 0);
@@ -74,7 +72,7 @@ if (mouse_check_button_pressed(mb_left)
     {
         _id = 0;
     }
-    
+
     ////////////////////////////////////////////////////////////////////////////
     // Pivot was clicked
     if (_id == PEd_oPivot.id)
@@ -82,14 +80,14 @@ if (mouse_check_button_pressed(mb_left)
         surface_set_target(_surColSelect);
         draw_clear(c_black);
         PEd_cameraSetProjection();
-        
+
         // Draw pivot
         with (PEd_oPivot) { event_perform(ev_draw, 0); }
         surface_reset_target();
 
         // Select axis
         editAxis = surface_getpixel(_surColSelect, windowMouseX - viewportX, windowMouseY - viewportY);
-        
+
         // Save mouse offset from the pivot
         if (editAxis != PEdAxes.None)
         {
@@ -97,23 +95,23 @@ if (mouse_check_button_pressed(mb_left)
             {
                 var _mouse;
                 var _pivot = PEd_vec3(PEd_oPivot.x, PEd_oPivot.y, PEd_oPivot.z);
-                
-                if (editAxis != PEdAxes.Z) 
+
+                if (editAxis != PEdAxes.Z)
                 {
                     _mouse = PEd_rayPlaneIntersect(PEd_vec3(x, y, z),
                                                    PEd_mouseRay3D(),
                                                    _pivot,
                                                    PEd_vec3(0, 0, 1));
                 }
-                else 
+                else
                 {
                     _mouse = PEd_rayPlaneIntersect(PEd_vec3(x, y, z),
                                                    PEd_mouseRay3D(),
                                                    _pivot,
                                                    PEd_vec3Normalize(PEd_vec3(x - PEd_oPivot.x, y - PEd_oPivot.y, 0)));
                 }
-                                                    
-                mouseOff = PEd_vec3Subtract(_pivot, _mouse); 
+
+                mouseOff = PEd_vec3Subtract(_pivot, _mouse);
                 mouseLast = _mouse;
             }
             else
@@ -122,7 +120,7 @@ if (mouse_check_button_pressed(mb_left)
                 var _y = viewportY + ((PEd_oPivot.y - view_yview[0]) / viewZoom);
                 mouseOff = PEd_vec3(_x - windowMouseX, _y - windowMouseY, 0);
             }
-            
+
             editNow = editTool;
         }
     }
@@ -134,13 +132,13 @@ if (mouse_check_button_pressed(mb_left)
                 // Select instance
                 PEd_selectObject(_id, false, _releasedRMB);
                 break;
-                
+
             case PEdEditModes.Tile:
                 // Select tile
                 var _mX = (windowMouseX - viewportX) * viewZoom + view_xview[0];
                 var _mY = (windowMouseY - viewportY) * viewZoom + view_yview[0];
                 var _tile = tile_layer_find(tileDepth, _mX, _mY);
-                    
+
                 if (!tile_exists(_tile))
                 {
                     _tile = 0;
@@ -148,7 +146,7 @@ if (mouse_check_button_pressed(mb_left)
                 PEd_selectObject(_tile, false, _releasedRMB);
                 break;
         }
-        
+
         // Open context menu for objects
         if (_releasedRMB
             && PEd_guiCanShowContextMenu()
@@ -161,10 +159,10 @@ if (mouse_check_button_pressed(mb_left)
             PEd_guiShowContextMenu(_contextMenu);
         }
     }
-    
+
     // Redraw all
     PEd_guiRequestRedrawAll(guiRoot)
-    
+
     // Free surface from memory
     surface_free(_surColSelect);
 }

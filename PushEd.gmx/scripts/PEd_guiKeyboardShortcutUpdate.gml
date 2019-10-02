@@ -1,8 +1,6 @@
 /// PEd_guiKeyboardShortcutUpdate(keyboardShortcut)
-/**
- * @brief Updates the keyboard shortcut.
- * @param {real} keyboardShortcut The id of the keyboard shortcut.
- */
+/// @brief Updates the keyboard shortcut.
+/// @param {real} keyboardShortcut The id of the keyboard shortcut.
 var _shortcut = argument0;
 var _action = _shortcut[? "scrAction"];
 if (_action == noone

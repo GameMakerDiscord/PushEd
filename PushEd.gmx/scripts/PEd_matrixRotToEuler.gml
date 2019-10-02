@@ -1,9 +1,7 @@
 /// PEd_matrixRotToEuler(rotationMatrix)
-/**
- * @brief Gets euler angles from a YXZ rotation matrix.
- * @param {matrix} rotationMatrix The YXZ rotation matrix.
- * @return {vec3} vec3(Rx, Ry, Rz).
- */
+/// @brief Gets euler angles from a YXZ rotation matrix.
+/// @param {matrix} rotationMatrix The YXZ rotation matrix.
+/// @return {vec3} vec3(Rx, Ry, Rz).
 // Source: https://www.geometrictools.com/Documentation/EulerAngles.pdf
 var _mat = argument0;
 var _thetaX, _thetaY, _thetaZ;

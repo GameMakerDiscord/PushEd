@@ -1,9 +1,7 @@
 /// PEd_xmlWrite(rootElement)
-/**
- * @brief Writes the tree of elements into a string.
- * @param {real} rootElement The root element of the tree.
- * @return {string} The string.
- */
+/// @brief Writes the tree of elements into a string.
+/// @param {real} rootElement The root element of the tree.
+/// @return {string} The string.
 var _element = argument[0];
 var _name = PEd_xmlGetElementName(_element);
 var _numberOfAttributes = PEd_xmlGetNumberOfElementAttributes(_element);

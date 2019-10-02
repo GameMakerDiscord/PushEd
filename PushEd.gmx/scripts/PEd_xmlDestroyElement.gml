@@ -1,8 +1,6 @@
 /// PEd_xmlDestroyElement(element)
-/**
- * @brief Destroys the element and all its children.
- * @param {real} element The id of the element to be destroyed.
- */
+/// @brief Destroys the element and all its children.
+/// @param {real} element The id of the element to be destroyed.
 var _element = argument0;
 var _parent = _element[? "parent"];
 

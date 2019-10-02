@@ -1,8 +1,6 @@
 /// PEd_guiToolbarButtonDraw(toolbarButton)
-/**
- * @brief Draws the toolbar button.
- * @param {real} toolbarButton The id of the toolbar button.
- */
+/// @brief Draws the toolbar button.
+/// @param {real} toolbarButton The id of the toolbar button.
 var _button = argument0;
 var _x = PEd_guiShapeGetX(_button);
 var _y = PEd_guiShapeGetY(_button);

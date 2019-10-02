@@ -1,7 +1,5 @@
 /// PEd_actClearRoom()
-/**
- * @brief Creates a new room.
- */
+/// @brief Creates a new room.
 view_xview[0] = 0;
 view_yview[0] = 0;
 x = -16;
@@ -19,7 +17,7 @@ editFloor = true;
 PEd_oPivot.x = 0;
 PEd_oPivot.y = 0;
 PEd_oPivot.z = 0;
- 
+
 // Reset tile editor
 ds_list_clear(tileLayers);
 ds_list_clear(tileVisible);

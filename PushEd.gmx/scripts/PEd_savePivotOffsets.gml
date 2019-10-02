@@ -1,7 +1,5 @@
 /// PEd_savePivotOffsets()
-/**
- * @brief Stores pivot offsets from all selected objects.
- */
+/// @brief Stores pivot offsets from all selected objects.
 var _size = ds_list_size(selectedObjects);
 if (_size > 0)
 {
@@ -13,7 +11,7 @@ if (_size > 0)
     ds_list_clear(selectedObjectsData);
     PEd_oPivot.x = 0;
     PEd_oPivot.y = 0;
-    PEd_oPivot.z = 0; 
+    PEd_oPivot.z = 0;
 
     switch (editMode)
     {
@@ -31,14 +29,14 @@ if (_size > 0)
                 PEd_oPivot.z += PEd_instanceGetPosZ(_inst);
             }
         }
-        
+
         // Center pivot position
         PEd_oPivot.x /= _size;
         PEd_oPivot.y /= _size;
         PEd_oPivot.z /= _size;
-        
+
         // Save offsets
-        for (var i = 0; i < _size; i++) 
+        for (var i = 0; i < _size; i++)
         {
             var _inst = selectedObjects[| i];
             var _offsetZ = 0;
@@ -52,7 +50,7 @@ if (_size > 0)
                                  _offsetZ));
         }
         break;
-            
+
     ////////////////////////////////////////////////////////////////////////////
     // Tiles
     case 1:
@@ -63,13 +61,13 @@ if (_size > 0)
             PEd_oPivot.x += tile_get_x(_inst);
             PEd_oPivot.y += tile_get_y(_inst);
         }
-        
+
         // Center pivot position
         PEd_oPivot.x /= _size;
         PEd_oPivot.y /= _size;
-        
+
         // Save offsets
-        for (var i = 0; i < _size; i++) 
+        for (var i = 0; i < _size; i++)
         {
             var _inst = selectedObjects[| i];
             var _offset = PEd_vec3(tile_get_x(_inst) - PEd_oPivot.x,

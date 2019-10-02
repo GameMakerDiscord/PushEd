@@ -1,10 +1,8 @@
 /// PEd_guiDrawItem(item, [x, y])
-/**
- * @brief Draws the item.
- * @param {real} item The id of the item.
- * @param {real} [x]  The x position to draw the item at.
- * @param {real} [y]  The y position to draw the item at.
- */
+/// @brief Draws the item.
+/// @param {real} item The id of the item.
+/// @param {real} [x] The x position to draw the item at.
+/// @param {real} [y] The y position to draw the item at.
 var _item = argument[0];
 
 // Set position if passed

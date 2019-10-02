@@ -1,7 +1,5 @@
 /// PEd_guiUpdate()
-/**
- * @brief Updates GUI.
- */
+/// @brief Updates GUI.
 guiTooltip = "";
 guiMouseX = window_mouse_get_x();
 guiMouseY = window_mouse_get_y();
@@ -42,7 +40,7 @@ if (PEd_guiShapeExists(guiShapeActive))
 }
 else if (PEd_guiShapeExists(guiShapeHovered))
 {
-    PEd_guiPushMouseCoordinates(guiShapeHovered);   
+    PEd_guiPushMouseCoordinates(guiShapeHovered);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -98,136 +96,136 @@ if (PEd_guiShapeExists(guiShapeSelected))
 
 ////////////////////////////////////////////////////////////////////////////////
 // Update input
-if (guiInputActive != noone) 
+if (guiInputActive != noone)
 {
     var _delegate = PEd_guiDecodeID(guiInputActive);
     PEd_guiRequestRedraw(_delegate);
-    
+
     var _inputStringLength = string_length(guiInputString);
-    
+
     // Multitype
     guiInputMultitype = false;
-    
-    if (keyboard_check_pressed(vk_anykey)) 
+
+    if (keyboard_check_pressed(vk_anykey))
     {
         guiInputMultitype = true;
         guiInputTimer = current_time;
     }
-    
-    if (current_time > guiInputTimer + 300) 
+
+    if (current_time > guiInputTimer + 300)
     {
         guiInputMultitype = true;
     }
-    
+
     // Type
     var _keyboardStringLength = string_length(keyboard_string);
-    
-    if (_keyboardStringLength > 0) 
+
+    if (_keyboardStringLength > 0)
     {
         // Delete selected part
-        if (guiInputIndex[0] != guiInputIndex[1]) 
+        if (guiInputIndex[0] != guiInputIndex[1])
         {
             PEd_guiInputDeleteSelectedPart();
         }
-        
+
         // Insert string
         guiInputString = string_insert(keyboard_string, guiInputString, guiInputIndex[0]);
         guiInputIndex[0] += _keyboardStringLength;
         guiInputIndex[1] = guiInputIndex[0];
         keyboard_string = "";
     }
-    
+
     // Backspace
-    if (keyboard_check(vk_backspace) && guiInputMultitype) 
+    if (keyboard_check(vk_backspace) && guiInputMultitype)
     {
-        if (guiInputIndex[0] == guiInputIndex[1]) 
+        if (guiInputIndex[0] == guiInputIndex[1])
         {
             guiInputString = string_delete(guiInputString, guiInputIndex[0] - 1, 1);
             guiInputIndex[0] = max(guiInputIndex[0] - 1, 1);
             guiInputIndex[1] = guiInputIndex[0];
         }
-        else 
+        else
         {
             PEd_guiInputDeleteSelectedPart();
         }
     }
-    else if (keyboard_check(vk_delete) && guiInputMultitype) 
+    else if (keyboard_check(vk_delete) && guiInputMultitype)
     {
         // Delete
-        if (guiInputIndex[0] != guiInputIndex[1]) 
+        if (guiInputIndex[0] != guiInputIndex[1])
         {
             PEd_guiInputDeleteSelectedPart();
         }
-        else 
+        else
         {
             guiInputString = string_delete(guiInputString, guiInputIndex[0], 1);
         }
     }
-    
+
     // Save string length
     var _inputStringLength = string_length(guiInputString);
-    
+
     // Control
-    if (keyboard_check(vk_control)) 
+    if (keyboard_check(vk_control))
     {
-        if (keyboard_check_pressed(ord("A"))) 
+        if (keyboard_check_pressed(ord("A")))
         {
             PEd_guiInputSelectAll();
         }
-        else if (keyboard_check_pressed(ord("D"))) 
+        else if (keyboard_check_pressed(ord("D")))
         {
             PEd_guiInputDelete();
         }
-        else if (keyboard_check_pressed(ord("X"))) 
+        else if (keyboard_check_pressed(ord("X")))
         {
             PEd_guiInputCut();
         }
-        else if (keyboard_check_pressed(ord("C"))) 
+        else if (keyboard_check_pressed(ord("C")))
         {
             PEd_guiInputCopy();
         }
-        else if (keyboard_check_pressed(ord("V"))) 
+        else if (keyboard_check_pressed(ord("V")))
         {
             PEd_guiInputPaste();
             _inputStringLength = string_length(guiInputString);
         }
     }
-    
+
     // Arrows
-    if (keyboard_check(vk_left) && guiInputMultitype) 
+    if (keyboard_check(vk_left) && guiInputMultitype)
     {
         guiInputIndex[1] = max(guiInputIndex[1] - 1, 1);
-        
-        if (!keyboard_check(vk_shift)) 
+
+        if (!keyboard_check(vk_shift))
         {
             guiInputIndex[0] = guiInputIndex[1];
         }
     }
-    else if (keyboard_check(vk_right) && guiInputMultitype) 
+    else if (keyboard_check(vk_right) && guiInputMultitype)
     {
         guiInputIndex[1] = min(guiInputIndex[1] + 1, _inputStringLength + 1);
-        
-        if (!keyboard_check(vk_shift)) 
+
+        if (!keyboard_check(vk_shift))
         {
             guiInputIndex[0] = guiInputIndex[1];
         }
     }
-    
+
     // Home/end
-    if (keyboard_check_pressed(vk_home)) 
+    if (keyboard_check_pressed(vk_home))
     {
         guiInputIndex[1] = 1;
-        
-        if (!keyboard_check(vk_shift)) 
+
+        if (!keyboard_check(vk_shift))
         {
             guiInputIndex[0] = guiInputIndex[1];
         }
     }
-    else if (keyboard_check_pressed(vk_end)) 
+    else if (keyboard_check_pressed(vk_end))
     {
         guiInputIndex[1] = _inputStringLength + 1;
-        
-        if (!keyboard_check(vk_shift)) 
+
+        if (!keyboard_check(vk_shift))
         {
             guiInputIndex[0] = guiInputIndex[1];
         }

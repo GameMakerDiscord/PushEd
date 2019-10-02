@@ -1,9 +1,7 @@
 /// PEd_instanceGetPosVec3(id)
-/**
- * @brief Gets the instance position on the x,y,z axis.
- * @param {real} id The id of the instance.
- * @return {vec3} The position on the x,y,z axis.
- */
+/// @brief Gets the instance position on the x,y,z axis.
+/// @param {real} id The id of the instance.
+/// @return {vec3} The position on the x,y,z axis.
 with (argument0)
 {
     var _x = variable_instance_get(id, PEd_POS_X);

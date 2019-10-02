@@ -1,8 +1,6 @@
 /// PEd_guiWindowDraw(window)
-/**
- * @brief Draws the window.
- * @param {real} window The id of the window.
- */
+/// @brief Draws the window.
+/// @param {real} window The id of the window.
 var _window = argument0;
 var _windowW = PEd_guiShapeGetWidth(_window);
 var _windowH = PEd_guiShapeGetHeight(_window);

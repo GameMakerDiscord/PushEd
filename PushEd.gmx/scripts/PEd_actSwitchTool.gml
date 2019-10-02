@@ -1,9 +1,7 @@
 /// PEd_actSwitchTool()
-/**
- * @brief Loops between tools.
- */
+/// @brief Loops between tools.
 editTool += 1;
-if (editTool > 2) 
+if (editTool > 2)
 {
     editTool = 0;
 }

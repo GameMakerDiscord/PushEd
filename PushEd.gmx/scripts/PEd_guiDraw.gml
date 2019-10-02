@@ -1,7 +1,5 @@
 /// PEd_guiDraw()
-/**
- * @brief Draws GUI.
- */
+/// @brief Draws GUI.
 colorShow = -1;
 draw_clear(PEdColour.Background);
 draw_set_font(PEd_fntNormal);
@@ -34,7 +32,7 @@ if (mouse_check_button_released(mb_left)
     PEd_guiRequestRedrawAll(guiRoot)
     guiDnDBackground = -1;
 }
- 
+
 var _bkg = max(bkgShow, guiDnDBackground);
 if (_bkg != -1)
 {
@@ -45,7 +43,7 @@ if (_bkg != -1)
     var _h = 64 / _aspect;
     var _x = min(_mouseX + 24, _guiWidth - _w - 8);
     var _y = min(_mouseY + 24, _guiHeight - _h - 8);
-    
+
     if (_bkg == guiDnDBackground)
     {
         draw_background_stretched_ext(_bkg, _x, _y, _w, _h, c_white, 0.5);
@@ -69,7 +67,7 @@ if (colorShow != -1)
     var _h = 64 / _aspect;
     var _x = min(_mouseX + 24, _guiWidth - _w - 8);
     var _y = min(_mouseY + 24, _guiHeight - _h - 8);
-    
+
     PEd_guiDrawRectangle(_x - 8, _y - 8, _w + 16, _h + 16, PEdColour.WindowBorder);
     PEd_guiDrawRectangle(_x - 7, _y - 7, _w + 14, _h + 14, PEdColour.WindowBackground);
     PEd_guiDrawRectangle(_x, _y, _w, _h, colorShow);

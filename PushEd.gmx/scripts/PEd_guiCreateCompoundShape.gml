@@ -1,9 +1,7 @@
 /// PEd_guiCreateCompoundShape([type])
-/**
- * @brief Creates a new compound shape.
- * @param {PEdGUIShape} type The compound shape type.
- * @return {real} The id of the created compound shape.
- */
+/// @brief Creates a new compound shape.
+/// @param {PEdGUIShape} type The compound shape type.
+/// @return {real} The id of the created compound shape.
 var _compoundShape;
 if (argument_count == 1)
 {

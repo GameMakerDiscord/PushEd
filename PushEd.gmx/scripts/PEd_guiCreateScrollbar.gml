@@ -1,9 +1,7 @@
 /// PEd_guiCreateScrollbar(delegate)
-/**
- * @brief Creates a new scrollbar.
- * @param {real} delegate The id of the scrollbars delegate.
- * @return {real} The id of the created scrollbar.
- */
+/// @brief Creates a new scrollbar.
+/// @param {real} delegate The id of the scrollbars delegate.
+/// @return {real} The id of the created scrollbar.
 var _scrollbar = PEd_guiCreateShape(PEdGUIShape.Scrollbar);
 PEd_guiShapeSetDelegate(_scrollbar, argument0);
 PEd_guiShapeSetDepth(_scrollbar, 16777216);

@@ -1,10 +1,8 @@
 /// PEd_xmlRead(fileName)
-/**
- * @brief Reads the XML formatted file and stores
- *        the contained data into a tree of elements.
- * @param {string} fileName The name of the XML formatted file.
- * @return {real} The root element of the tree on success or noone on fail.
- */
+/// @brief Reads the XML formatted file and stores
+/// the contained data into a tree of elements.
+/// @param {string} fileName The name of the XML formatted file.
+/// @return {real} The root element of the tree on success or noone on fail.
 var _file = file_bin_open(argument0, 0);
 
 if (_file == -1)
@@ -32,12 +30,12 @@ do
     //
     _lastByte = _byte;
     _byte = file_bin_read_byte(_file);
-        
+
     //
     // Process byte
     //
     _isSeparator = true;
-    
+
     switch (_byte)
     {
         // Start of new element
@@ -51,23 +49,23 @@ do
                 show_debug_message("ERROR: Unexpected symbol '<' at " + string(_filePos) + "!");
                 return noone;
             }
-            
+
             // Set element value
             while (string_byte_at(_token, 1) == 32)
             {
                 _token = string_delete(_token, 1, 1);
             }
-            
+
             if (_token != ""
                 && _parentElement != noone
                 && PEd_xmlGetNumberOfChildElements(_parentElement) == 0)
             {
                 PEd_xmlSetElementValue(_parentElement, PEd_xmlParse(_token));
             }
-        
+
             _element = PEd_xmlCreateElement();
             break;
-            
+
         // End of element
         case PEdXml.Gt:
             if (_element == noone)
@@ -79,14 +77,14 @@ do
                 show_debug_message("ERROR: Unexpected symbol '>' at " + string(_filePos) + "!");
                 return noone;
             }
-            
+
             _lastElement = _element;
-            
+
             if (_root == noone && !_isComment)
             {
                 _root = _element;
             }
-            
+
             if (_isComment)
             {
                 _lastElement = noone;
@@ -126,19 +124,19 @@ do
             _element = noone;
             _elementName = "";
             break;
-            
+
         // Closing element
         case PEdXml.Slash:
             if (_isString || _element == noone)
             {
-                _isSeparator = false;    
+                _isSeparator = false;
             }
             else if (_lastByte == PEdXml.Lt)
             {
                 _isClosing = true;
             }
             break;
-    
+
         // Attribute
         case PEdXml.Equal:
             if (!_isString)
@@ -153,7 +151,7 @@ do
                 _isSeparator = false;
             }
             break;
-            
+
         // Start/end of string
         case PEdXml.Sq:
         case PEdXml.Dq:
@@ -175,7 +173,7 @@ do
                 _isString = _byte;
             }
             break;
-            
+
         // Treat as comments
         case PEdXml.Qm:
         case PEdXml.Em:
@@ -184,7 +182,7 @@ do
                 _isComment = true;
             }
             break;
-        
+
         default:
             // Whitespace
             if (!_isString && _element != noone
@@ -199,7 +197,7 @@ do
             }
             break;
     }
-    
+
     //
     // Process tokens
     //
@@ -207,7 +205,7 @@ do
     {
         // End of token
         if (_token != "")
-        { 
+        {
             // Set element name
             if (_element != noone
                 && PEd_xmlGetElementName(_element) == "")
@@ -218,7 +216,7 @@ do
                      && PEd_xmlGetElementName(_lastElement) == "")
             {
                 PEd_xmlSetElementName(_lastElement, _token);
-            }            
+            }
             _token = "";
         }
     }
@@ -230,7 +228,7 @@ do
             _byte = PEdXml.Space; // Replace new lines, tabs, etc. with spaces
         }
         _token += chr(_byte);
-    }     
+    }
 }
 until (++_filePos == _fileSize);
 

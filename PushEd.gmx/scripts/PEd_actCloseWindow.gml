@@ -1,7 +1,5 @@
 /// PEd_actCloseWindow()
-/**
- * @brief Closes the topmost window.
- */
+/// @brief Closes the topmost window.
 var _items = PEd_guiCompoundShapeGetItems(guiRoot);
 var _item = _items[| ds_list_size(_items) - 1];
 if (!is_undefined(_item))

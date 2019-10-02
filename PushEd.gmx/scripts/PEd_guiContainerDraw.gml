@@ -1,8 +1,6 @@
 /// PEd_guiContainerDraw(container)
-/**
- * @brief Draws the container.
- * @param {real} container The id of the container.
- */
+/// @brief Draws the container.
+/// @param {real} container The id of the container.
 // Draw items
 if (PEd_guiBeginFill(argument0))
 {
@@ -12,7 +10,7 @@ if (PEd_guiBeginFill(argument0))
     {
         _size = script_execute(_content, argument0);
     }
-    
+
     PEd_guiContainerSetContentWidth(argument0, _size[0]);
     PEd_guiContainerSetContentHeight(argument0, _size[1]);
     PEd_guiEndFill(argument0);

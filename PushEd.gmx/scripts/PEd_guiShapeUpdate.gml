@@ -1,8 +1,6 @@
 /// PEd_guiShapeUpdate(shape)
-/**
- * @brief Updates the shape.
- * @param {real} shape The id of the shape.
- */
+/// @brief Updates the shape.
+/// @param {real} shape The id of the shape.
 var _shape = argument0;
 //PEd_guiShapeSetSize(_shape, PEd_guiShapeGetWidth(_shape), PEd_guiShapeGetHeight(_shape));
 
@@ -10,7 +8,7 @@ var _shape = argument0;
 if (PEd_guiShapeIsHovered(_shape))
 {
     guiTooltip = PEd_guiShapeGetTooltip(_shape);
-    
+
     // Select shape
     if (mouse_check_button_pressed(mb_any))
     {

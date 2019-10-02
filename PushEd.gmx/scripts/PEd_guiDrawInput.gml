@@ -1,15 +1,13 @@
 /// PEd_guiDrawInput(x, y, width, value, [disabled, [defaultValue]])
-/**
- * @brief Draws an input at the given position.
- * @param {real}        x            The x position to draw the input at.
- * @param {real}        y            The y position to draw the input at.
- * @param {real}        width        The width of the input.
- * @param {real/string} value        The value in the input.
- * @param {bool}        [disabled]   True to disable editing the input value.
- * @param {real/string} defaultValue The value to draw when the value is an empty string.
- * @return {real/string/undefined} The new input value when done editing or undefined while
- *                                 editing.
- */
+/// @brief Draws an input at the given position.
+/// @param {real} x            The x position to draw the input at.
+/// @param {real} y            The y position to draw the input at.
+/// @param {real} width The width of the input.
+/// @param {real/string} value The value in the input.
+/// @param {bool} [disabled] True to disable editing the input value.
+/// @param {real/string} defaultValue The value to draw when the value is an empty string.
+/// @return {real/string/undefined} The new input value when done editing or undefined while
+/// editing.
 var _padding = ceil(guiFontWidth * 0.5) + 1;
 var _id = PEd_guiEncodeID(guiShapeFilling, guiShapeId++);
 var _delegate = guiShapeFilling;
@@ -83,7 +81,7 @@ if (_active)
         var _maxIndex = clamp(max(guiInputIndex[0], guiInputIndex[1]) - guiInputDrawIndexStart, 0, _stringLength);
         var _rectMinX = _textX + guiFontWidth * max(_minIndex, 0);
         var _rectMaxX = _textX + guiFontWidth * min(_maxIndex, _maxCharCount);
-        
+
         // Text before selection
         draw_text(_textX, _textY, string_copy(_drawValue, 1, _minIndex));
         // Selection rectangle
@@ -94,7 +92,7 @@ if (_active)
         // Text after selection
         draw_text(_rectMaxX, _textY, string_delete(_drawValue, 1, _maxIndex));
     }
-    
+
     // Draw highlight
     draw_sprite_ext(guiInputSprite, 3, _x, _y, 1, 1, 0, PEdColour.Active, 1);
     draw_sprite_stretched_ext(guiInputSprite, 4, _x + guiInputSpriteWidth, _y,
@@ -106,7 +104,7 @@ else
     var _drawValue = _value;
     if (argument_count > 5 && _value == "")
         _drawValue = argument[5];
-    
+
     var _colour;
     if (_disabled)
         _colour = PEdColour.Disabled;
@@ -121,12 +119,12 @@ else
 // Input logic
 //
 if (mouse_check_button_pressed(mb_left)
-    || mouse_check_button_pressed(mb_right)) 
+    || mouse_check_button_pressed(mb_right))
 {
     // Select input
     if (_mouseOver && !_disabled)
     {
-        if (guiInputActive == noone) 
+        if (guiInputActive == noone)
         {
             _active = true;
             guiInputActive = _id;
@@ -140,7 +138,7 @@ if (mouse_check_button_pressed(mb_left)
     else if (_active
         && (!PEd_guiShapeExists(guiContextMenu)
         || (guiContextMenu != noone
-        && !PEd_guiShapeDelegatesRecursive(guiContextMenu, guiShapeHovered)))) 
+        && !PEd_guiShapeDelegatesRecursive(guiContextMenu, guiShapeHovered))))
     {
         // Return value when clicked outside of the input
         guiInputActive = noone;
@@ -152,10 +150,10 @@ if (mouse_check_button_pressed(mb_left)
     }
 }
 
-if (_active) 
+if (_active)
 {
     // Select text
-    if (mouse_check_button(mb_left) /*&& _mouseOver*/) 
+    if (mouse_check_button(mb_left) /*&& _mouseOver*/)
     {
         var _index = clamp(round((guiMouseX - _xStart - _padding) / guiFontWidth) + guiInputDrawIndexStart, 1, _stringLength + 1);
         if (mouse_check_button_pressed(mb_left))
@@ -168,14 +166,14 @@ if (_active)
         var _contextMenu = PEd_guiCreateContextMenu();
         PEd_guiMenuInput(_contextMenu);
         PEd_guiShowContextMenu(_contextMenu);
-        
+
         // TODO: Select word in input on double click
         /*var _index = clamp(round((guiMouseX - _xStart - _padding) / guiFontWidth) + guiInputDrawIndexStart, 1, _stringLength + 1);
         var i, _char;
         _char = string_char_at(_value, _index);
         if (_char != " ")
         {
-            for (i = _index; i > 1; i--) 
+            for (i = _index; i > 1; i--)
             {
                 _char = string_char_at(_value, i);
                 if (_char == " ")
@@ -185,8 +183,8 @@ if (_active)
                 }
             }
             guiInputIndex[0] = i;
-            
-            for (i = _index; i < _stringLength + 1; i++) 
+
+            for (i = _index; i < _stringLength + 1; i++)
             {
                 _char = string_char_at(_value, i);
                 if (_char == " ")
@@ -195,8 +193,8 @@ if (_active)
             guiInputIndex[1] = i;
         }*/
     }
-        
-    if (keyboard_check_pressed(vk_enter)) 
+
+    if (keyboard_check_pressed(vk_enter))
     {
         // Return value when enter is pressed
         guiInputActive = noone;

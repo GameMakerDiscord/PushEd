@@ -1,13 +1,11 @@
 /// PEd_guiCreateToolbarButton(name, sprite, subimg, tooltip, action)
-/**
- * @brief Creates a new toolbar button.
- * @param {string} name    The name of the button.
- * @param {real}   sprite  The button sprite.
- * @param {real}   subimg  The sprite subimage.
- * @param {string} tooltip The tooltip text.
- * @param {real}   action  The script that will be executed on click.
- * @return {real} The id of the created toolbar button.
- */
+/// @brief Creates a new toolbar button.
+/// @param {string} name The name of the button.
+/// @param {real} sprite The button sprite.
+/// @param {real} subimg The sprite subimage.
+/// @param {string} tooltip The tooltip text.
+/// @param {real} action The script that will be executed on click.
+/// @return {real} The id of the created toolbar button.
 var _tool = PEd_guiCreateShape(PEdGUIShape.ToolbarButton);
 _tool[? "name"] = argument0;
 _tool[? "sprite"] = argument1;

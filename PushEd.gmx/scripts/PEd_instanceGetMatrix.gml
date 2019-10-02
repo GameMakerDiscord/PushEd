@@ -1,9 +1,7 @@
 /// PEd_instanceGetMatrix(id)
-/**
- * @brief Gets transformation matrix of the instance.
- * @param {real} id The id of the instance.
- * @return {matrix} The transformation matrix of the instance.
- */
+/// @brief Gets transformation matrix of the instance.
+/// @param {real} id The id of the instance.
+/// @return {matrix} The transformation matrix of the instance.
 gml_pragma("forceinline");
 with (argument0)
 {
@@ -18,7 +16,7 @@ with (argument0)
     var _xRot = variable_instance_get(id, PEd_ROT_X);
     var _yRot = variable_instance_get(id, PEd_ROT_Y);
     var _zRot = variable_instance_get(id, PEd_ROT_Z);
-    
+
     return matrix_multiply(
         matrix_multiply(
             matrix_build(0, 0, 0, 0, 0, 0, _xScale, _yScale, _zScale),

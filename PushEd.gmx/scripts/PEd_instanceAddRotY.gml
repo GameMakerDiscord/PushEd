@@ -1,9 +1,7 @@
 /// PEd_instanceAddRotY(id, rot)
-/**
- * @brief Rotates instance around the y axis by the given angle.
- * @param {real} id  The id of the instance.
- * @param {real} rot The angle.
- */
+/// @brief Rotates instance around the y axis by the given angle.
+/// @param {real} id The id of the instance.
+/// @param {real} rot The angle.
 var _id = argument0;
 var _rot = argument1;
 var _matWorld = matrix_get(matrix_world);
@@ -34,7 +32,7 @@ with (PEd_oEditor)
     var _index = ds_list_find_index(selectedObjects, _id);
     if (_index != -1)
     {
-        var _data = selectedObjectsData[| _index]; 
+        var _data = selectedObjectsData[| _index];
         _data[@ 0] = PEd_instanceGetPosX(_id) - PEd_oPivot.x;
         _data[@ 2] = PEd_instanceGetPosZ(_id) - PEd_oPivot.z;
     }

@@ -1,10 +1,8 @@
 /// PEd_roomSaveToBBMAP2(room, file)
-/**
- * @brief Saves the room into the *.bbmap version 2 file.
- * @param {real}   room The id of the room.
- * @param {string} file The name of the file to export to.
- * @return {bool} True on success.
- */
+/// @brief Saves the room into the *.bbmap version 2 file.
+/// @param {real} room The id of the room.
+/// @param {string} file The name of the file to export to.
+/// @return {bool} True on success.
 var _room = argument0;
 var _path = argument1;
 var _roomName = string_replace(filename_name(_path), ".bbmap", "");
@@ -49,7 +47,7 @@ for (var i = 0; i < 8; i++)
     buffer_write(_buffer, buffer_u32, PEd_viewportGetBorderVer(_viewport));
     buffer_write(_buffer, buffer_f32, PEd_viewportGetSpeedHor(_viewport));
     buffer_write(_buffer, buffer_f32, PEd_viewportGetSpeedVer(_viewport));
-    
+
     var _objName = "<undefined>";
     var _obj = PEd_viewportGetObject(_viewport);
     if (_obj >= 0)
@@ -73,7 +71,7 @@ for (var i = 0; i < 8; i++)
     buffer_write(_buffer, buffer_f32, PEd_backgroundGetY(_background));
     buffer_write(_buffer, buffer_f32, PEd_backgroundGetSpeedHor(_background));
     buffer_write(_buffer, buffer_f32, PEd_backgroundGetSpeedVer(_background));
-    
+
     var _bgName = "<undefined>";
     var _bg = PEd_backgroundGetImage(_background);
     if (_bg >= 0)

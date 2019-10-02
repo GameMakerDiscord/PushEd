@@ -1,8 +1,6 @@
 /// PEd_guiCompoundShapeCleanUp(compoundShape)
-/**
- * @brief Frees resources used by the compound shape from memory.
- * @param {real} compoundShape The id of the compound shape.
- */
+/// @brief Frees resources used by the compound shape from memory.
+/// @param {real} compoundShape The id of the compound shape.
 var _items = PEd_guiCompoundShapeGetItems(argument0);
 while (ds_list_size(_items) > 0)
 {

@@ -1,8 +1,6 @@
 /// PEd_guiViewportUpdate(viewport)
-/**
- * @brief Updates the viewport.
- * @param {real} viewport The id of the viewport.
- */
+/// @brief Updates the viewport.
+/// @param {real} viewport The id of the viewport.
 var _viewport = argument0;
 PEd_guiShapeUpdate(_viewport);
 
@@ -10,12 +8,12 @@ PEd_guiShapeUpdate(_viewport);
 var _width = max(viewportWidth, 1);
 var _height = max(viewportHeight, 1);
 
-if (global.pedUsing3D) 
+if (global.pedUsing3D)
 {
     view_wview[0] = _width;
     view_hview[0] = _height;
 }
-else 
+else
 {
     view_wport[0] = _width;
     view_hport[0] = _height;

@@ -1,7 +1,5 @@
 /// PEd_end3D()
-/**
- * @brief Ends 3D mode.
- */
+/// @brief Ends 3D mode.
 global.pedUsing3D = false;
 d3d_set_culling(false);
 d3d_end();

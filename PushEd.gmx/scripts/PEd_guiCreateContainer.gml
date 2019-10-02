@@ -1,12 +1,10 @@
 /// PEd_guiCreateContainer([x, y, width, height])
-/**
- * @brief Creates a new scrollable container.
- * @param {real} [x]      The x positon to create the container at.
- * @param {real} [y]      The y positon to create the container at.
- * @param {real} [width]  The width of the container.
- * @param {real} [height] The width of the container.
- * @return {real} The id of the created container.
- */
+/// @brief Creates a new scrollable container.
+/// @param {real} [x] The x positon to create the container at.
+/// @param {real} [y] The y positon to create the container at.
+/// @param {real} [width] The width of the container.
+/// @param {real} [height] The width of the container.
+/// @return {real} The id of the created container.
 var _container = PEd_guiCreateCanvas(PEdGUIShape.Container);
 if (argument_count == 4)
 {

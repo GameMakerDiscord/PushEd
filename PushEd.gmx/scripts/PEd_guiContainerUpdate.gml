@@ -1,8 +1,6 @@
 /// PEd_guiContainerUpdate(container)
-/**
- * @brief Updates the container.
- * @param {real} container The id of the container.
- */
+/// @brief Updates the container.
+/// @param {real} container The id of the container.
 var _container = argument0;
 var _scrollbarHor = _container[? "scrollbarHor"];
 var _scrollbarVer = _container[? "scrollbarVer"];
@@ -26,10 +24,10 @@ if (guiShapeActive == _container
                                 / _scrollbarHor[? "scrollJump"] * 0.1;
     _scrollbarVer[? "scroll"] += (windowMouseY - _container[? "clickScrollMouseY"])
                                 / _scrollbarVer[? "scrollJump"] * 0.1;
-                                
+
     _scrollbarHor[? "scroll"] = clamp(_scrollbarHor[? "scroll"], 0, _scrollbarHor[? "size"] - _scrollbarHor[? "thumbSize"]);
     _scrollbarVer[? "scroll"] = clamp(_scrollbarVer[? "scroll"], 0, _scrollbarVer[? "size"] - _scrollbarVer[? "thumbSize"]);
-                                
+
     if (!mouse_check_button(mb_middle))
     {
         _container[? "clickScroll"] = false;

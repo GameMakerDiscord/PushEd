@@ -1,34 +1,32 @@
 /// PEd_dragAndDrop()
-/**
- * @brief Handles instance drag and drop.
- */
+/// @brief Handles instance drag and drop.
 if (editMode == PEdEditModes.Object
-    && mouseInViewport) 
+    && mouseInViewport)
 {
-    var _room  = PEd_getCurrentRoom();
+    var _room = PEd_getCurrentRoom();
     var _space = PEd_getMouseWorldPosition(_room);
-    
+
     ////////////////////////////////////////////////////////////////////////////
     // Drop instance
     if (guiDnDObject != -1
-        && mouse_check_button(mb_left)) 
+        && mouse_check_button(mb_left))
     {
         var i = PEd_instanceCreate(_room, _space[0], _space[1], guiDnDObject);
         PEd_instanceSetPosZ(i, _space[2]);
-        
-        with (i) 
+
+        with (i)
         {
             pivotOffX = 0;
             pivotOffY = 0;
             pivotOffZ = 0;
         }
-        
+
         // Save instance id
-        pedDnDInstance            = i;
+        pedDnDInstance = i;
         contentBrowserIndexObject = -1;
-        guiDnDObject              = -1;
+        guiDnDObject = -1;
     }
-    
+
     ////////////////////////////////////////////////////////////////////////////
     // Move dropped instance
     if (pedDnDInstance != noone

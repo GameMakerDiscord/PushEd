@@ -1,8 +1,6 @@
 /// PEd_cameraUnprojectVec2(vector)
-/**
- * @brief Unprojects the point on screen from screen space to a direction in world space.
- * @return {vec3} A vector pointing from the camera in point direction.
- */
+/// @brief Unprojects the point on screen from screen space to a direction in world space.
+/// @return {vec3} A vector pointing from the camera in point direction.
 var _vec = argument0;
 var _d = PEd_cameraGetDirVec3();
 var _u = PEd_cameraGetUpVec3();

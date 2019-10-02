@@ -1,7 +1,5 @@
 /// PEd_actExit()
-/**
- * @brief Quits the editor.
- */
+/// @brief Quits the editor.
 // Activate all instances
 instance_activate_all();
 

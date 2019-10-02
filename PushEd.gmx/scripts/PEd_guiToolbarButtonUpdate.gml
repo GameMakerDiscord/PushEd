@@ -1,8 +1,6 @@
 /// PEd_guiToolbarButtonUpdate(toolbarButton)
-/**
- * @brief Updates the toolbar button.
- * @param {real} toolbarButton The id of the toolbar button.
- */
+/// @brief Updates the toolbar button.
+/// @param {real} toolbarButton The id of the toolbar button.
 PEd_guiShapeUpdate(argument0);
 
 if (PEd_guiShapeIsHovered(argument0)

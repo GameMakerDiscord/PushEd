@@ -1,10 +1,8 @@
 /// PEd_guiScrollbarHorDraw(scrollbarHor)
-/**
- * @brief Draws the horizontal scrollbar.
- * @param {real} scrollbarHor The id of the horizontal scrollbar.
- */
+/// @brief Draws the horizontal scrollbar.
+/// @param {real} scrollbarHor The id of the horizontal scrollbar.
 if (PEd_guiScrollbarIsVisible(argument0))
-{ 
+{
     // Thumb
     var _x = PEd_guiShapeGetX(argument0) + argument0[? "scroll"];
     var _y = PEd_guiShapeGetY(argument0);

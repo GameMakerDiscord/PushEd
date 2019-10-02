@@ -1,8 +1,6 @@
 /// PEd_guiDockDraw(dock)
-/**
- * @brief Draws the dock.
- * @param {real} dock The id of the dock.
- */
+/// @brief Draws the dock.
+/// @param {real} dock The id of the dock.
 var _dock = argument0;
 var _x = PEd_guiShapeGetX(_dock);
 var _y = PEd_guiShapeGetY(_dock);
@@ -10,7 +8,7 @@ var _items = PEd_guiCompoundShapeGetItems(_dock);
 var _itemCount = ds_list_size(_items);
 
 PEd_guiMatrixPush(_x, _y);
-    
+
 if (_itemCount == 1)
 {
     var _item = _items[| 0];
@@ -27,7 +25,7 @@ else if (_itemCount == 2)
     var _splitSize = _dock[? "splitSize"];
     var _padding = _dock[? "padding"];
     var _middle;
-    
+
     if (_splitType == PEdGUISplit.Horizontal)
     {
         _middle = round(_width * _splitSize);
@@ -36,7 +34,7 @@ else if (_itemCount == 2)
     {
         _middle = round(_height * _splitSize);
     }
-    
+
     // Left
     var _left = _items[| 0];
     if (_splitType == PEdGUISplit.Horizontal)
@@ -52,7 +50,7 @@ else if (_itemCount == 2)
             _middle - _padding);
     }
     PEd_guiDrawItem(_left, 0, 0);
-    
+
     // Right
     var _right = _items[| 1];
     if (_splitType == PEdGUISplit.Horizontal)

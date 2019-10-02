@@ -1,9 +1,7 @@
 /// PEd_matrixInverse(matrix)
-/** 
- * @brief Calculates the inverse matrix of the given matrix.
- * @param {matrix} matrix The matrix to calculate the inverse matrix of.
- * @return {matrix} The inverse matrix.
- */
+/// @brief Calculates the inverse matrix of the given matrix.
+/// @param {matrix} matrix The matrix to calculate the inverse matrix of.
+/// @return {matrix} The inverse matrix.
 var _m = argument0;
 var _i;
 _i[15] = _m[ 1]*_m[ 6]*_m[ 8] - _m[ 2]*_m[ 5]*_m[ 8] + _m[ 2]*_m[ 4]*_m[ 9] - _m[ 0]*_m[ 6]*_m[ 9] - _m[ 1]*_m[ 4]*_m[10] + _m[ 0]*_m[ 5]*_m[10];

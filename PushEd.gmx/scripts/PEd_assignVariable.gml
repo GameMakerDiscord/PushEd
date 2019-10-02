@@ -1,13 +1,11 @@
 /// PEd_assignVariable(name, value)
-/**
- * @brief Sets variable of given name.
- * @param {string} name  The name of the variable.
- * @param {real}   value The value to be assigned.
- */
+/// @brief Sets variable of given name.
+/// @param {string} name The name of the variable.
+/// @param {real} value The value to be assigned.
 var _name = string(argument0);
 var _value = argument1;
 
-switch (_name) 
+switch (_name)
 {
     case "alarm[0]": alarm[0] = _value; break;
     case "alarm[1]": alarm[1] = _value; break;

@@ -1,8 +1,6 @@
 /// PEd_roomSaveToGMX(room, file)
-/**
- * @brief Saves the room into the *.room.gmx file.
- * @return {real} True on success.
- */
+/// @brief Saves the room into the *.room.gmx file.
+/// @return {real} True on success.
 var _room = argument0;
 var _path = argument1;
 var _roomName = string_replace(filename_name(_path), ".room.gmx", "");
@@ -23,78 +21,78 @@ PEd_xmlAddChildElement(_root,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("width"),
         PEd_roomGetWidth(_room)));
-        
+
 PEd_xmlAddChildElement(_root,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("height"),
         PEd_roomGetHeight(_room)));
-        
+
 PEd_xmlAddChildElement(_root,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("vsnap"),
         PEd_roomGetSnapV(_room)));
-        
+
 PEd_xmlAddChildElement(_root,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("hsnap"),
         PEd_roomGetSnapH(_room)));
-        
+
 PEd_xmlAddChildElement(_root,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("isometric"), 0));
-        
+
 PEd_xmlAddChildElement(_root,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("speed"),
         PEd_roomGetSpeed(_room)));
-        
+
 PEd_xmlAddChildElement(_root,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("persistent"),
         -PEd_roomGetPersistent(_room)));
-        
+
 PEd_xmlAddChildElement(_root,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("colour"),
         PEd_roomGetColour(_room)));
-        
+
 PEd_xmlAddChildElement(_root,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("showcolour"),
         PEd_roomGetShowColour(_room)));
-        
+
 PEd_xmlAddChildElement(_root,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("code"),
         PEd_roomGetCode(_room)));
-        
+
 PEd_xmlAddChildElement(_root,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("enableViews"), -1));
-        
+
 PEd_xmlAddChildElement(_root,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("clearViewBackground"), -1));
-  
+
 PEd_xmlAddChildElement(_root,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("clearDisplayBuffer"), -1));
 
 ////////////////////////////////////////////////////////////////////////////////
-// Maker 
+// Maker
 var _makerSettings = PEd_xmlCreateElement("makerSettings");
 PEd_xmlAddChildElement(_makerSettings,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("isSet"), 0));
-        
+
 PEd_xmlAddChildElement(_makerSettings,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("w"), 0));
-        
+
 PEd_xmlAddChildElement(_makerSettings,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("h"), 0));
-        
+
 PEd_xmlAddChildElement(_makerSettings,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("showGrid"),
@@ -103,43 +101,43 @@ PEd_xmlAddChildElement(_makerSettings,
 PEd_xmlAddChildElement(_makerSettings,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("showObjects"), 0));
-        
+
 PEd_xmlAddChildElement(_makerSettings,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("showTiles"), 0));
-        
+
 PEd_xmlAddChildElement(_makerSettings,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("showBackgrounds"), 0));
-        
+
 PEd_xmlAddChildElement(_makerSettings,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("showForegrounds"), 0));
-        
+
 PEd_xmlAddChildElement(_makerSettings,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("showViews"), 0));
-        
+
 PEd_xmlAddChildElement(_makerSettings,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("deleteUnderlyingObj"), 0));
-        
+
 PEd_xmlAddChildElement(_makerSettings,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("deleteUnderlyingTiles"), 0));
-        
+
 PEd_xmlAddChildElement(_makerSettings,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("page"), 0));
-        
+
 PEd_xmlAddChildElement(_makerSettings,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("xoffset"), 0));
-        
+
 PEd_xmlAddChildElement(_makerSettings,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("yoffset"), 0));
-        
+
 PEd_xmlAddChildElement(_root, _makerSettings);
 
 var _backgrounds = PEd_xmlCreateElement("backgrounds");
@@ -151,12 +149,12 @@ for (var i = 0; i < 8; i++)
     // Backgrounds
     var _background = PEd_roomGetBackground(_room, i);
     var _bgrElement = PEd_xmlCreateElement("background");
-    
+
     PEd_xmlSetElementAttribute(
         _bgrElement, "visible", -PEd_backgroundGetVisible(_background));
     PEd_xmlSetElementAttribute(
         _bgrElement, "foreground", -PEd_backgroundIsForeground(_background));
-        
+
     var _bgrName = "";
     var _index = PEd_backgroundGetImage(_background);
     if (_index >= 0)
@@ -164,7 +162,7 @@ for (var i = 0; i < 8; i++)
         _bgrName = background_get_name(_index);
     }
     PEd_xmlSetElementAttribute(_bgrElement, "name", _bgrName);
-    
+
     PEd_xmlSetElementAttribute(
         _bgrElement, "x", PEd_backgroundGetX(_background));
     PEd_xmlSetElementAttribute(
@@ -179,17 +177,17 @@ for (var i = 0; i < 8; i++)
         _bgrElement, "vspeed", PEd_backgroundGetSpeedVer(_background));
     PEd_xmlSetElementAttribute(
         _bgrElement, "stretch", -PEd_backgroundGetStretch(_background));
-        
+
     PEd_xmlAddChildElement(_backgrounds, _bgrElement);
-        
+
     ////////////////////////////////////////////////////////////////////////////
     // Views
     var _viewport = PEd_roomGetViewport(_room, i);
     var _viewElem = PEd_xmlCreateElement("view");
-    
+
     PEd_xmlSetElementAttribute(
         _viewElem, "visible", -PEd_viewportGetVisible(_viewport));
-        
+
     var _objName = "<undefined>";
     var _index = PEd_viewportGetObject(_viewport);
     if (_index >= 0)
@@ -197,7 +195,7 @@ for (var i = 0; i < 8; i++)
         _objName = object_get_name(_index);
     }
     PEd_xmlSetElementAttribute(_viewElem, "objName", _objName);
-    
+
     PEd_xmlSetElementAttribute(
         _viewElem, "xview", PEd_viewportGetX(_viewport));
     PEd_xmlSetElementAttribute(
@@ -222,7 +220,7 @@ for (var i = 0; i < 8; i++)
         _viewElem, "hspeed", PEd_viewportGetSpeedHor(_viewport));
     PEd_xmlSetElementAttribute(
         _viewElem, "vspeed", PEd_viewportGetSpeedVer(_viewport));
-        
+
     PEd_xmlAddChildElement(_views, _viewElem);
 }
 
@@ -239,9 +237,9 @@ for (var i = 0; i < _instCount; i++)
 {
     var _inst = _instList[| i];
     PEd_instanceAutocompleteCode(_inst);
-    
+
     var _instElem = PEd_xmlCreateElement("instance");
-    
+
     PEd_xmlSetElementAttribute(
         _instElem, "objName", PEd_instanceGetObjectName(_inst));
     PEd_xmlSetElementAttribute(
@@ -264,7 +262,7 @@ for (var i = 0; i < _instCount; i++)
                                   PEd_instanceGetAlpha(_inst)));
     PEd_xmlSetElementAttribute(
         _instElem, "rotation", PEd_instanceGetRotZ(_inst));
-        
+
     PEd_xmlAddChildElement(_instances, _instElem);
 }
 
@@ -280,7 +278,7 @@ for (var i = 0; i < _tileCount; i++)
 {
     var _tile = _tileList[| i];
     var _tileElem = PEd_xmlCreateElement("tile");
-    
+
     PEd_xmlSetElementAttribute(
         _tileElem, "bgName", background_get_name(tile_get_background(_tile)));
     PEd_xmlSetElementAttribute(
@@ -310,7 +308,7 @@ for (var i = 0; i < _tileCount; i++)
         _tileElem, "scaleX", tile_get_xscale(_tile));
     PEd_xmlSetElementAttribute(
         _tileElem, "scaleY", tile_get_yscale(_tile))
-        
+
     PEd_xmlAddChildElement(_tiles, _tileElem);
 }
 
@@ -324,7 +322,7 @@ PEd_xmlAddChildElement(_root,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("PhysicsWorld"),
         -PEd_physicsWorldGetEnabled(_physicsWorld)));
-        
+
 PEd_xmlAddChildElement(_root,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("PhysicsWorldTop"), 0));
@@ -332,32 +330,32 @@ PEd_xmlAddChildElement(_root,
 PEd_xmlAddChildElement(_root,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("PhysicsWorldLeft"), 0));
-        
+
 PEd_xmlAddChildElement(_root,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("PhysicsWorldRight"),
         PEd_roomGetWidth(_room)));
-        
+
 PEd_xmlAddChildElement(_root,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("PhysicsWorldBottom"),
         PEd_roomGetHeight(_room)));
-    
+
 PEd_xmlAddChildElement(_root,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("PhysicsWorldGravityX"),
         PEd_physicsWorldGetGravityX(_physicsWorld)));
-  
+
 PEd_xmlAddChildElement(_root,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("PhysicsWorldGravityY"),
         PEd_physicsWorldGetGravityY(_physicsWorld)));
-    
+
 PEd_xmlAddChildElement(_root,
     PEd_xmlSetElementValue(
         PEd_xmlCreateElement("PhysicsWorldPixToMeters"),
         PEd_physicsWorldGetPxToM(_physicsWorld)));
-        
+
 ////////////////////////////////////////////////////////////////////////////////
 //
 // Write xml document
@@ -371,5 +369,5 @@ if (_file != -1)
     file_text_close(_file);
     return true;
 }
- 
+
 return false;

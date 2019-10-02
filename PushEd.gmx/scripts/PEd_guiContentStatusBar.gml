@@ -1,9 +1,7 @@
 /// PEd_guiContentStatusBar(container)
-/**
- * @brief Draws the content of a Status bar to the container.
- * @param {real} container The id of the container.
- * @return {vec2} The content size.
- */
+/// @brief Draws the content of a Status bar to the container.
+/// @param {real} container The id of the container.
+/// @return {vec2} The content size.
 var _container = argument0;
 var _containerWidth = PEd_guiShapeGetWidth(_container);
 var _containerHeight = PEd_guiShapeGetHeight(_container);
@@ -78,12 +76,12 @@ if (global.pedUsing3D)
     if (!is_undefined(_input))
         x = _input;
     _x += _inputWidthPlusPadding;
-    
+
     _input = PEd_guiDrawInput(_x, _y, _inputWidth, y);
     if (!is_undefined(_input))
         y = _input;
     _x += _inputWidthPlusPadding;
-    
+
     _input = PEd_guiDrawInput(_x, _y, _inputWidth, z);
     if (!is_undefined(_input))
         z = _input;
@@ -95,7 +93,7 @@ else
     if (!is_undefined(_input))
         view_xview[0] = _input;
     _x += _inputWidthPlusPadding;
-    
+
     _input = PEd_guiDrawInput(_x, _y, _inputWidth, view_yview[0]);
     if (!is_undefined(_input))
         view_yview[0] = _input;

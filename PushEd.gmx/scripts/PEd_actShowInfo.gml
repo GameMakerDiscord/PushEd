@@ -1,7 +1,5 @@
 /// PEd_actShowInfo()
-/**
- * @brief Shows message containing info about PushEd. 
- */
+/// @brief Shows message containing info about PushEd.
 if (!PEd_guiShapeExists(guiWindowInfo))
 {
     var _info = PEd_guiCreateWindow("Info");

@@ -1,8 +1,6 @@
 /// PEd_createBackground()
-/**
- * @brief Creates a background.
- * @return {real} The id of the background.
- */
+/// @brief Creates a background.
+/// @return {real} The id of the background.
 var _background = ds_map_create();
 _background[? "x"] = 0;
 _background[? "y"] = 0;

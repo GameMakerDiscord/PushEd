@@ -1,8 +1,6 @@
 /// PEd_actSaveRoom()
-/**
- * @brief Saves the room.
- */
-// Make sure that all instances that you want  to save are activated,
+/// @brief Saves the room.
+// Make sure that all instances that you want to save are activated,
 // deactivated instances can not be saved!
 instance_activate_all();
 

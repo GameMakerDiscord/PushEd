@@ -1,10 +1,8 @@
 /// PEd_selectObject(id, [forceSingleSelect], [keepMultipleSelection])
-/**
- * @brief Handles (multi)selecting and instances and tiles.
- * @param {real} id                      The id of the instance or tile to select/add to selection/deselect.
- * @param {bool} [forceSingleSelect]     True to force selecting single object.
- * @param {bool} [keepMultipleSelection] If true then keeps multiple selection.
- */
+/// @brief Handles (multi)selecting and instances and tiles.
+/// @param {real} id The id of the instance or tile to select/add to selection/deselect.
+/// @param {bool} [forceSingleSelect] True to force selecting single object.
+/// @param {bool} [keepMultipleSelection] If true then keeps multiple selection.
 var _id = argument[0];
 var _key = vk_control;
 
@@ -101,7 +99,7 @@ if (_selectedObj > 0)
         case PEdEditModes.Object:
             PEd_getCustomData(_selectedObj);
             break;
-            
+
         case PEdEditModes.Tile:
             PEd_getTileCustomData();
             break;
