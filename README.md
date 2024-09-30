@@ -5,6 +5,8 @@
 
 Maintained by: [kraifpatrik](https://github.com/kraifpatrik)
 
+> **NOTICE:** PushEd 2 for latest GameMaker is now available for Patrons of BlueBurn! Check it out at <https://blueburn.cz/index.php?menu=pushed2>.
+
 ![Screenshot 2D](2d.png)
 ![Screenshot 3D](3d.png)
 
